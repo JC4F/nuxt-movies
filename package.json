@@ -7,7 +7,8 @@
     "dev": "nuxt dev -p 3002",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
     "@nuxt/image": "^1.8.0",
@@ -25,7 +26,8 @@
     "shadcn-nuxt": "^0.10.4",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
-    "vue": "latest"
+    "vue": "latest",
+    "vue-router-better-scroller": "^0.0.0"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",
