@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxtjs/i18n",
     "@nuxtjs/html-validator",
+    "@nuxt/eslint",
   ],
   css: ["~/assets/scss/main.scss"],
   shadcn: {

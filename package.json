@@ -11,6 +11,7 @@
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
+    "@nuxt/eslint": "^0.5.5",
     "@nuxt/image": "^1.8.0",
     "@nuxtjs/html-validator": "^1.8.2",
     "@nuxtjs/i18n": "^8.5.1",
@@ -31,6 +32,11 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",
+    "@types/eslint-plugin-tailwindcss": "^3.17.0",
+    "eslint": "^9.9.1",
+    "eslint-plugin-tailwindcss": "^3.17.4",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "sass": "^1.77.8",
     "typescript": "^5.5.4"
   }
