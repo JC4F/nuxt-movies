@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { QueryItem } from '~/types'
+import type { QueryItem } from "~/types";
 
 const props = defineProps<{
-  query: QueryItem
-}>()
+  query: QueryItem;
+}>();
 
-const item = await listMedia(props.query.type, props.query.query, 1)
+const item = await listMedia(props.query.type, props.query.query, 1);
 </script>
 
 <template>
@@ -14,8 +14,11 @@ const item = await listMedia(props.query.type, props.query.query, 1)
       {{ $t(query.title) }}
     </template>
     <template #more>
-      <NuxtLink :to="`/${props.query.type}/category/${props.query.query}`" n-link>
-        {{ $t('Explore more') }}
+      <NuxtLink
+        :to="`/${props.query.type}/category/${props.query.query}`"
+        class="opacity-50 transition-all hover:opacity-100"
+      >
+        {{ $t("Explore more") }}
       </NuxtLink>
     </template>
     <MediaCard
@@ -23,7 +26,7 @@ const item = await listMedia(props.query.type, props.query.query, 1)
       :key="i.id"
       :item="i"
       :type="props.query.type"
-      flex-1 w-40 md:w-60
+      class="w-10 flex-1 md:w-[60px]"
     />
   </CarouselBase>
 </template>

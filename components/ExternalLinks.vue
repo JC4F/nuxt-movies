@@ -21,7 +21,7 @@ const imdbType = computed(() => {
       target="_blank"
       aria-label="Link to Twitter account"
       rel="noopener"
-      n-link
+      opacity-50 transition-all hover:opacity-100
     >
       <div i-simple-icons:twitter />
     </a>
@@ -31,7 +31,7 @@ const imdbType = computed(() => {
       target="_blank"
       aria-label="Link to Facebook account"
       rel="noopener"
-      n-link
+      opacity-50 transition-all hover:opacity-100
     >
       <div i-simple-icons:facebook />
     </a>
@@ -41,7 +41,7 @@ const imdbType = computed(() => {
       target="_blank"
       aria-label="Link to Instagram account"
       rel="noopener"
-      n-link
+      opacity-50 transition-all hover:opacity-100
     >
       <div i-simple-icons:instagram />
     </a>
@@ -51,7 +51,7 @@ const imdbType = computed(() => {
       target="_blank"
       aria-label="Link to IMDb account"
       rel="noopener"
-      n-link
+      opacity-50 transition-all hover:opacity-100
     >
       <div i-cib:imdb />
     </a>
@@ -61,7 +61,7 @@ const imdbType = computed(() => {
       target="_blank"
       aria-label="Link to GitHub account"
       rel="noopener"
-      n-link
+      opacity-50 transition-all hover:opacity-100
     >
       <div i-simple-icons:github />
     </a>
@@ -71,7 +71,7 @@ const imdbType = computed(() => {
       target="_blank"
       aria-label="Link to LinkedIn account"
       rel="noopener"
-      n-link
+      opacity-50 transition-all hover:opacity-100
     >
       <div i-simple-icons:linkedin />
     </a>
@@ -80,7 +80,7 @@ const imdbType = computed(() => {
       :href="links.email"
       aria-label="Link to Email"
       rel="noopener" scale-120
-      n-link
+      opacity-50 transition-all hover:opacity-100
     >
       <div i-ph-envelope-simple />
     </a>
@@ -89,7 +89,7 @@ const imdbType = computed(() => {
       :href="links.homepage"
       aria-label="Link to Homepage"
       rel="noopener" scale-120
-      n-link
+      opacity-50 transition-all hover:opacity-100
     >
       <div i-ph-link-simple />
     </a>

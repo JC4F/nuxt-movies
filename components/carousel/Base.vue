@@ -1,48 +1,52 @@
 <script setup lang="ts">
-const scrollEl = ref<HTMLDivElement>()
+import { ChevronLeft, ChevronRight } from "lucide-vue-next";
+
+const scrollEl = ref<HTMLDivElement>();
 
 function scrollLeft() {
   scrollEl.value?.scrollBy({
     left: -window.innerWidth,
-    behavior: 'smooth',
-  })
+    behavior: "smooth",
+  });
 }
 
 function scrollRight() {
   scrollEl.value?.scrollBy({
     left: window.innerWidth,
-    behavior: 'smooth',
-  })
+    behavior: "smooth",
+  });
 }
 </script>
 
 <template>
-  <div flex py3 px10 items-center mt5>
-    <div text-2xl>
+  <div class="mt-[1.25] flex items-center px-2.5 py-[0.75]">
+    <div class="text-2xl">
       <slot name="title" />
     </div>
-    <div flex-auto />
+    <div class="flex-auto" />
     <slot name="more" />
   </div>
   <div relative>
-    <div ref="scrollEl" overflow-y-auto>
-      <div flex gap-2 w-max p-2 px-10>
+    <div ref="scrollEl" class="overflow-y-auto">
+      <div class="flex w-max gap-2 p-2 px-2.5">
         <slot />
       </div>
     </div>
-    <button type="button"
-      flex="~ col" absolute top-0 left-0 bottom-0 bg-black:50 p3 items-center justify-center op0 hover:op100 transition
+    <button
+      type="button"
+      class="absolute inset-y-0 left-0 flex flex-col items-center justify-center p-[0.75] opacity-0 transition-all hover:opacity-100"
       title="Scroll left"
       @click="scrollLeft()"
     >
-      <div i-ph-caret-left-light text-3xl text-white />
+      <ChevronLeft class="size-4" />
     </button>
-    <button type="button"
-      flex="~ col" absolute top-0 right-0 bottom-0 bg-black:50 p3 items-center justify-center op0 hover:op100 transition
+    <button
+      type="button"
+      class="absolute inset-y-0 right-0 flex flex-col items-center justify-center p-[0.75] opacity-0 transition-all hover:opacity-100"
       title="Scroll right"
       @click="scrollRight()"
     >
-      <div i-ph-caret-right-light text-3xl text-white />
+      <ChevronRight class="size-4" />
     </button>
   </div>
 </template>

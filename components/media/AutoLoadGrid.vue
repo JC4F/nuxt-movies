@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Loader2 } from 'lucide-vue-next';
 import type { Media, MediaType } from '~/types'
 
 const props = withDefaults(
@@ -32,12 +33,12 @@ async function loadingNext() {
   }
 }
 
-if (process.server || props.blocking)
+if (import.meta.server || props.blocking)
   await loadingNext()
 else
   loadingNext()
 
-if (process.client) {
+if (import.meta.client) {
   useIntervalFn(() => {
     if (!tailEl.value || isLoading.value)
       return
@@ -53,10 +54,10 @@ if (process.client) {
 
 <template>
   <div>
-    <h1 flex="~" px8 pt8 gap2 text-3xl>
+    <h1 class="flex gap-2 px-2 pt-2 text-3xl">
       <slot />
     </h1>
-    <div v-if="count != null" px8 op50>
+    <div v-if="count != null" class="px-2 opacity-50">
       {{ $t('{count} items', { count }) }}
     </div>
     <MediaGrid>
@@ -68,8 +69,6 @@ if (process.client) {
       />
     </MediaGrid>
     <div ref="tailEl" />
-    <div v-if="isLoading" p10 animate-pulse>
-      <div i-carbon:circle-dash text-4xl ma animate-spin />
-    </div>
+    <Loader2 v-if="isLoading" class="mx-auto size-4 animate-spin p-2.5" />
   </div>
 </template>

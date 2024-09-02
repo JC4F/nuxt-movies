@@ -20,13 +20,13 @@ const credits = [...props.items]
       v-for="i of credits"
       :key="i.id"
       :to="`/${i.media_type}/${i.id}`"
-      flex="col" gap2 px2 py3 bg-gray:5
+      flex="col" gap-2 px2 py-[0.75] bg-gray:5
     >
-      <div text-center w-20 tabular-nums>
+      <div text-center w-5 tabular-nums>
         {{ i.release_date ? i.release_date.slice(0, 4) : i.first_air_date ? i.first_air_date.slice(0, 4) : '-' }}
       </div>
       <div>{{ i.title || i.name }}</div>
-      <div op50>
+      <div opacity-50>
         {{ i.character ? $t('as {character}', { character: i.character }) : '' }}
       </div>
     </NuxtLink>

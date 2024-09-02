@@ -34,12 +34,12 @@ useHead({
 <template>
   <NuxtLoadingIndicator />
   <div
-    class="grid size-full overflow-hidden transition-none sm:grid-rows-[1fr_max-content] lg:grid-cols-[max-content_1fr]"
+    class="grid size-full grid-rows-[1fr_max-content] overflow-hidden transition-none lg:grid-cols-[max-content_1fr]"
   >
-    <div id="app-scroller" of-x-hidden of-y-auto relative>
+    <div id="app-scroller" class="relative overflow-y-auto overflow-x-hidden">
       <NuxtPage />
     </div>
-    <NavBar lg:order-first />
+    <NavBar class="order-1" />
     <IframeModal />
     <PhotoModal />
   </div>

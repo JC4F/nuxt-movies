@@ -1,21 +1,17 @@
 <script setup lang="ts">
-import type { Media, MediaType } from '~/types'
+import { FileQuestion } from "lucide-vue-next";
+import type { Media, MediaType } from "~/types";
 
 defineProps<{
-  type: MediaType
-  item: Media
-}>()
+  type: MediaType;
+  item: Media;
+}>();
 </script>
 
 <template>
-  <NuxtLink
-    :to="`/${item.media_type || type}/${item.id}`" pb2
-  >
+  <NuxtLink :to="`/${item.media_type || type}/${item.id}`" pb2>
     <div
-      block bg-gray4:10 p1
-      class="aspect-10/16"
-      transition duration-400
-      hover="scale-105 z10"
+      class="block aspect-[10/16] bg-secondary p-[0.25] transition duration-500 hover:z-10 hover:scale-105"
     >
       <NuxtImg
         v-if="item.poster_path"
@@ -24,19 +20,19 @@ defineProps<{
         format="webp"
         :src="`/tmdb${item.poster_path}`"
         :alt="item.title || item.name"
-        w-full h-full object-cover
+        class="size-full object-cover"
         :style="{ 'view-transition-name': `item-${item.id}` }"
       />
-      <div v-else h-full op10 flex>
-        <div i-ph:question ma text-4xl />
+      <div v-else class="flex h-full opacity-10">
+        <FileQuestion class="size-4" />
       </div>
     </div>
-    <div mt-2>
+    <div class="mt-2">
       {{ item.title || item.name }}
     </div>
-    <div flex text-sm gap-2 items-center>
-      <StarsRate w-20 :value="item.vote_average" />
-      <div op60>
+    <div class="flex items-center gap-2 text-sm">
+      <StarsRate class="w-5" :value="item.vote_average" />
+      <div class="opacity-60">
         {{ formatVote(item.vote_average) }}
       </div>
     </div>

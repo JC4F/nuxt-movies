@@ -1,5 +1,5 @@
 <template>
-  <div grid="~ cols-minmax-20rem" gap4 p8>
+  <div grid="~ cols-minmax-20rem" gap-1 p-2>
     <slot />
   </div>
 </template>

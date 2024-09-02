@@ -23,7 +23,7 @@ onClickOutside(el, () => {
 <template>
   <div v-if="src" fixed top-0 left-0 right-0 bottom-0 z-10 bg-black:90 flex>
     <button
-      absolute top-1 right-1 z-100 p3 text-3xl n-link bg-black:60 rounded-full
+      absolute top-1 right-1 z-100 p-[0.75] text-3xl opacity-50 transition-all hover:opacity-100 bg-black:60 rounded-full
       title="Close"
       @click="src = null"
     >
