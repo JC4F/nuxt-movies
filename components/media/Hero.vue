@@ -38,15 +38,15 @@ const mounted = useMounted();
       />
     </div>
     <div
-      class="absolute inset-0 flex flex-col justify-center bg-gradient-to-t from-foreground via-foreground to-transparent p-2.5 lg:w-2/3 lg:bg-gradient-to-r lg:px-6"
+      class="absolute inset-0 flex flex-col justify-center bg-gradient-to-t from-foreground via-foreground to-transparent p-10 lg:w-2/3 lg:bg-gradient-to-r lg:px-24"
     >
       <Transition appear name="hero">
         <div v-show="mounted">
           <h1 class="mt-2 line-clamp-2 text-4xl lg:text-5xl">
             {{ props.item.title || props.item.name }}
           </h1>
-          <div class="mt-1 flex items-center gap-2">
-            <StarsRate class="w-6" :value="props.item.vote_average" />
+          <div class="mt-4 flex items-center gap-2">
+            <StarsRate class="w-24" :value="props.item.vote_average" />
             <div class="hidden opacity-50 md:block">
               {{ formatVote(props.item.vote_average) }}
             </div>
@@ -72,10 +72,10 @@ const mounted = useMounted();
           >
             {{ props.item.overview }}
           </p>
-          <div v-if="trailer" class="hidden py-[5px] lg:block">
+          <div v-if="trailer" class="hidden py-5 lg:block">
             <button
               type="button"
-              class="flex items-center gap-2 bg-foreground px-1.5 py-[3px] transition-all hover:opacity-80"
+              class="flex items-center gap-2 bg-foreground px-1.5 py-3 transition-all hover:opacity-80"
               :title="$t('Watch Trailer')"
               @click="playTrailer()"
             >
@@ -92,7 +92,7 @@ const mounted = useMounted();
     >
       <button
         type="button"
-        class="items-center p-2.5 text-5xl opacity-20 transition hover:opacity-80"
+        class="items-center p-10 text-5xl opacity-20 transition hover:opacity-80"
         :title="$t('Watch Trailer')"
         @click="playTrailer()"
       >

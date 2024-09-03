@@ -10,7 +10,7 @@ const tab = ref<"known" | "credits" | "photos">("known");
 
 <template>
   <PersonInfo :item="item" />
-  <div class="flex items-center justify-center gap-2 py-1.5">
+  <div class="flex items-center justify-center gap-8 py-6">
     <button
       :class="{
         'border-b-2 border-transparent p-[3px] text-xl uppercase tracking-wide opacity-20 transition': true,

@@ -14,7 +14,7 @@ const externalIds = computed(() => ({
 
 <template>
   <div
-    class="mx-auto grid max-w-[1200px] items-center gap-8 p-1 md:grid-cols-[max-content_1fr]"
+    class="mx-auto grid max-w-[1200px] items-center gap-8 p-4 md:grid-cols-[max-content_1fr]"
   >
     <NuxtImg
       v-if="props.item.profile_path"
@@ -23,11 +23,11 @@ const externalIds = computed(() => ({
       format="webp"
       :src="`/tmdb${props.item.profile_path}`"
       :alt="props.item.name"
-      class="mx-auto mt-5 block aspect-[3/4] w-[70px] self-start border-4 border-secondary object-cover transition-all duration-500 md:w-[90px]"
+      class="mx-auto mt-5 block aspect-[3/4] w-72 self-start border-4 border-secondary object-cover transition-all duration-500"
     />
-    <div class="gap-2 p-1">
+    <div class="gap-8 p-4">
       <div>
-        <h2 class="mb-1 text-3xl">
+        <h2 class="mb-4 text-3xl">
           {{ props.item.name }}
         </h2>
 

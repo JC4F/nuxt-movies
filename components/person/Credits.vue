@@ -12,7 +12,7 @@ const props = withDefaults(
 </script>
 
 <template>
-  <div class="flex flex-col gap-[5px] px-4">
+  <div class="flex flex-col gap-20 px-16">
     <PersonCreditsList
       v-if="props.item.combined_credits?.cast?.length"
       :title="$t('Acting Credits')"

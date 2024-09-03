@@ -41,18 +41,17 @@ const directors = computed(() =>
       :style="{ 'view-transition-name': `item-${props.item.id}` }"
     />
 
-    <div class="flex w-[calc(100vw-2rem)] flex-col gap-1.5 md:p-1">
+    <div class="flex w-[calc(100%-2rem)] flex-col gap-6 md:p-4">
       <div v-if="props.item.overview">
-        <h2 class="mb-1 text-3xl">
+        <h2 class="mb-4 text-3xl">
           {{ $t("Storyline") }}
         </h2>
         <div class="opacity-80" v-text="props.item.overview" />
       </div>
 
-      <div text-sm opacity-80>
+      <div class="text-sm opacity-80">
         <ul
-          grid="~ cols-[max-content_1fr] lg:cols-[max-content_1fr_max-content_1fr] gap3"
-          items-center
+          class="grid grid-cols-[max-content_1fr] items-center gap-3 lg:grid-cols-[max-content_1fr_max-content_1fr]"
         >
           <template v-if="props.item.release_date">
             <div>

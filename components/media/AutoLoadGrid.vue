@@ -54,10 +54,10 @@ if (import.meta.client) {
 
 <template>
   <div>
-    <h1 class="flex gap-2 px-2 pt-2 text-3xl">
+    <h1 class="flex gap-2 px-8 pt-8 text-3xl">
       <slot />
     </h1>
-    <div v-if="count != null" class="px-2 opacity-50">
+    <div v-if="count != null" class="px-8 opacity-50">
       {{ $t('{count} items', { count }) }}
     </div>
     <MediaGrid>
@@ -69,6 +69,6 @@ if (import.meta.client) {
       />
     </MediaGrid>
     <div ref="tailEl" />
-    <Loader2 v-if="isLoading" class="mx-auto size-4 animate-spin p-2.5" />
+    <Loader2 v-if="isLoading" class="mx-auto size-4 animate-spin p-10" />
   </div>
 </template>

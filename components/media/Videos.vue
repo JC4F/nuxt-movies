@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex flex-col gap-1.5 p-1 md:px-[3.5]">
+  <div class="flex flex-col gap-6 p-4 md:px-14">
     <div class="opacity-50">
       {{
         $t("{numberOfVideos} Videos", {
@@ -15,7 +15,7 @@ defineProps<{
         })
       }}
     </div>
-    <div class="grid grid-cols-[repeat(auto-fill,_minmax(20rem,_1fr))] gap-1">
+    <div class="grid grid-cols-[repeat(auto-fill,_minmax(20rem,_1fr))] gap-4">
       <VideoCard v-for="i of item.videos?.results" :key="i.id" :item="i" />
     </div>
   </div>

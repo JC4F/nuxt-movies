@@ -53,8 +53,8 @@ watch(
 
 <template>
   <div>
-    <div class="sticky flex items-center gap-3 bg-foreground px-2 py-1">
-      <Search class="size-4" />
+    <div class="sticky flex items-center gap-3 bg-foreground px-6 py-4">
+      <Search class="size-6" />
       <input
         v-model="input"
         v-focus
@@ -70,7 +70,7 @@ watch(
       </h1>
       <pre class="py-0.5">{{ error }}</pre>
       <button
-        class="rounded border px-1 py-[1px] opacity-50 transition-all hover:opacity-100"
+        class="rounded border px-1 py-px opacity-50 transition-all hover:opacity-100"
         @click="error = undefined"
       >
         {{ $t("Retry") }}
@@ -89,7 +89,7 @@ watch(
         {{ $t("Search result for: {currentSearch}", { currentSearch }) }}
       </div>
     </MediaAutoLoadGrid>
-    <div v-else class="p-2.5 text-center text-4xl opacity-50" >
+    <div v-else class="p-10 text-center text-4xl opacity-50" >
       {{ $t("Type something to search...") }}
     </div>
   </div>

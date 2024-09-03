@@ -19,16 +19,16 @@ function scrollRight() {
 </script>
 
 <template>
-  <div class="mt-[5px] flex items-center px-2.5 py-[3px]">
+  <div class="mt-5 flex items-center px-10 py-3">
     <div class="text-2xl">
       <slot name="title" />
     </div>
     <div class="flex-auto" />
     <slot name="more" />
   </div>
-  <div relative>
+  <div class="relative">
     <div ref="scrollEl" class="overflow-y-auto">
-      <div class="flex w-max gap-2 p-2 px-2.5">
+      <div class="flex w-max gap-2 p-2 px-10">
         <slot />
       </div>
     </div>
@@ -38,7 +38,7 @@ function scrollRight() {
       title="Scroll left"
       @click="scrollLeft()"
     >
-      <ChevronLeft class="size-4" />
+      <ChevronLeft class="size-8" />
     </button>
     <button
       type="button"
@@ -46,7 +46,7 @@ function scrollRight() {
       title="Scroll right"
       @click="scrollRight()"
     >
-      <ChevronRight class="size-4" />
+      <ChevronRight class="size-8" />
     </button>
   </div>
 </template>

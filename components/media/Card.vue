@@ -9,9 +9,9 @@ defineProps<{
 </script>
 
 <template>
-  <NuxtLink :to="`/${item.media_type || type}/${item.id}`" pb-0.5>
+  <NuxtLink :to="`/${item.media_type || type}/${item.id}`" class="pb-2">
     <div
-      class="block aspect-[10/16] bg-secondary p-[1px] transition duration-500 hover:z-10 hover:scale-105"
+      class="block aspect-[10/16] bg-secondary p-px transition duration-500 hover:z-10 hover:scale-105"
     >
       <NuxtImg
         v-if="item.poster_path"
@@ -31,7 +31,7 @@ defineProps<{
       {{ item.title || item.name }}
     </div>
     <div class="flex items-center gap-2 text-sm">
-      <StarsRate class="w-5" :value="item.vote_average" />
+      <StarsRate class="w-20" :value="item.vote_average" />
       <div class="opacity-60">
         {{ formatVote(item.vote_average) }}
       </div>

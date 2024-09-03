@@ -40,7 +40,7 @@ useHead({
         :key="i.id"
         :item="i"
         :type="type"
-        class="w-10 flex-1 md:w-[240px]"
+        class="w-40 flex-1 md:w-60"
       />
     </CarouselBase>
     <TheFooter />

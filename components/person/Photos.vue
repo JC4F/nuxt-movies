@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="flex flex-col gap-1.5 px-4">
+  <div class="flex flex-col gap-6 px-16">
     <div class="mt-10 flex items-baseline gap-2">
       <div class="text-2xl">
         {{ $t("Person Photos") }}
@@ -21,7 +21,7 @@ defineProps<{
       </div>
     </div>
     <div
-      class="grid grid-cols-[minmax(10rem,_1fr)] gap-1 lg:grid-cols-[minmax(15rem,_1fr)]"
+      class="grid grid-cols-[repeat(auto-fill,_minmax(10rem,_1fr))] gap-4 lg:grid-cols-[repeat(auto-fill,_minmax(15rem,_1fr))]"
     >
       <PhotoCard
         v-for="i of item.images?.profiles"

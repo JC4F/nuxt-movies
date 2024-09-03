@@ -4,19 +4,19 @@ import { Film, Home, Search, Tv } from "lucide-vue-next";
 
 <template>
   <div
-    class="flex flex-row items-center justify-evenly border-t bg-foreground py-[5px] lg:flex-col lg:border-r lg:px-[5px]"
+    class="flex flex-row items-center justify-evenly border-t border-border bg-foreground py-5 lg:flex-col lg:border-r lg:border-t-0 lg:px-5"
   >
     <NuxtLink v-slot="{ isActive }" to="/" :title="$t('Home')">
-      <Home :class="{ 'size-6': true, 'text-background': isActive }" />
+      <Home :class="{ 'size-6': true, 'fill-secondary': isActive }" />
     </NuxtLink>
     <NuxtLink v-slot="{ isActive }" to="/movie" :title="$t('Movies')">
-      <Film :class="{ 'size-6': true, 'text-background': isActive }" />
+      <Film :class="{ 'size-6': true, 'fill-secondary': isActive }" />
     </NuxtLink>
     <NuxtLink v-slot="{ isActive }" to="/tv" :title="$t('TV Shows')">
-      <Tv :class="{ 'size-6': true, 'text-background': isActive }" />
+      <Tv :class="{ 'size-6': true, 'fill-secondary': isActive }" />
     </NuxtLink>
     <NuxtLink v-slot="{ isActive }" to="/search" :title="$t('Search')">
-      <Search :class="{ 'size-6': true, 'text-background': isActive }" />
+      <Search :class="{ 'size-6': true, 'fill-secondary': isActive }" />
     </NuxtLink>
   </div>
 </template>

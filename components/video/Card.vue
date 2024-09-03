@@ -13,9 +13,9 @@ function play() {
 </script>
 
 <template>
-  <button class="pb-0.5 text-left" @click="play()">
+  <button class="pb-2 text-left" @click="play()">
     <div
-      class="relative flex aspect-[16/9] bg-secondary p-[1px] transition duration-500 hover:z-10 hover:scale-[1.02]"
+      class="relative flex aspect-[16/9] bg-secondary p-1 transition duration-500 hover:z-10 hover:scale-[1.02]"
     >
       <NuxtImg
         :src="`/youtube/vi/${item.key}/maxresdefault.jpg`"
@@ -28,7 +28,7 @@ function play() {
       <div
         class="absolute inset-0 flex size-full opacity-20 transition hover:opacity-100"
       >
-        <Play class="mx-auto size-8" />
+        <Play class="m-auto size-8" />
       </div>
     </div>
     <div class="mt-2">
