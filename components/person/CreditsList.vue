@@ -1,33 +1,43 @@
 <script setup lang="ts">
-import type { Media } from '~/types'
+import type { Media } from "~/types";
 
 const props = defineProps<{
-  items: Media[]
-  title: string
-}>()
+  items: Media[];
+  title: string;
+}>();
 
-const credits = [...props.items]
-  .sort((a, b) => (b.release_date || b.first_air_date || '9999')
-    .localeCompare(a.release_date || a.first_air_date || '9999'))
+const credits = [...props.items].sort((a, b) =>
+  (b.release_date || b.first_air_date || "9999").localeCompare(
+    a.release_date || a.first_air_date || "9999",
+  ),
+);
 </script>
 
 <template>
-  <div flex="~ col" gap1>
-    <h2 text-2xl pb4>
+  <div class="flex flex-col gap-[0.25]">
+    <h2 class="pb-1 text-2xl">
       {{ title }}
     </h2>
     <NuxtLink
       v-for="i of credits"
       :key="i.id"
       :to="`/${i.media_type}/${i.id}`"
-      flex="col" gap-2 px2 py-[0.75] bg-gray:5
+      class="flex flex-col gap-2 bg-secondary px-0.5 py-[0.75]"
     >
-      <div text-center w-5 tabular-nums>
-        {{ i.release_date ? i.release_date.slice(0, 4) : i.first_air_date ? i.first_air_date.slice(0, 4) : '-' }}
+      <div class="w-5 text-center">
+        {{
+          i.release_date
+            ? i.release_date.slice(0, 4)
+            : i.first_air_date
+              ? i.first_air_date.slice(0, 4)
+              : "-"
+        }}
       </div>
       <div>{{ i.title || i.name }}</div>
-      <div opacity-50>
-        {{ i.character ? $t('as {character}', { character: i.character }) : '' }}
+      <div class="opacity-50">
+        {{
+          i.character ? $t("as {character}", { character: i.character }) : ""
+        }}
       </div>
     </NuxtLink>
   </div>

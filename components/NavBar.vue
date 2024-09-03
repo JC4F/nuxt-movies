@@ -1,34 +1,23 @@
+<script setup lang="ts">
+import { Film, Home, Tv } from "lucide-vue-next";
+import Search from "~/pages/search.vue";
+</script>
+
 <template>
   <div
-    flex="~ row lg:col"
-    justify-evenly items-center
-    py5 lg:px5
-    border="t lg:r base"
-    bg-black
+    class="flex flex-row items-center justify-evenly border-t bg-foreground py-[1.25] lg:flex-col lg:border-r lg:px-[1.25]"
   >
     <NuxtLink v-slot="{ isActive }" to="/" :title="$t('Home')">
-      <div
-        text-2xl
-        :class="isActive ? 'i-ph-house-fill text-primary' : 'i-ph-house'"
-      />
+      <Home :class="{ 'size-6': true, 'text-background': isActive }" />
     </NuxtLink>
     <NuxtLink v-slot="{ isActive }" to="/movie" :title="$t('Movies')">
-      <div
-        text-2xl
-        :class="isActive ? 'i-ph-film-strip-fill text-primary' : 'i-ph-film-strip'"
-      />
+      <Film :class="{ 'size-6': true, 'text-background': isActive }" />
     </NuxtLink>
     <NuxtLink v-slot="{ isActive }" to="/tv" :title="$t('TV Shows')">
-      <div
-        text-2xl
-        :class="isActive ? 'i-ph-television-simple-fill text-primary' : 'i-ph-television-simple'"
-      />
+      <Tv :class="{ 'size-6': true, 'text-background': isActive }" />
     </NuxtLink>
     <NuxtLink v-slot="{ isActive }" to="/search" :title="$t('Search')">
-      <div
-        text-2xl
-        :class="isActive ? 'i-ph-magnifying-glass-fill text-primary' : 'i-ph-magnifying-glass'"
-      />
+      <Search :class="{ 'size-6': true, 'text-background': isActive }" />
     </NuxtLink>
   </div>
 </template>

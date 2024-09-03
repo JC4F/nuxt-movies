@@ -13,7 +13,9 @@ const externalIds = computed(() => ({
 </script>
 
 <template>
-  <div p4 grid="~ md:cols-[max-content_1fr]" gap-8 items-center ma max-w-300>
+  <div
+    class="mx-auto grid max-w-[300px] items-center gap-8 p-1 md:grid-cols-[max-content_1fr]"
+  >
     <NuxtImg
       v-if="props.item.profile_path"
       width="400"
@@ -21,40 +23,28 @@ const externalIds = computed(() => ({
       format="webp"
       :src="`/tmdb${props.item.profile_path}`"
       :alt="props.item.name"
-      block
-      border="4 gray4/10"
-      w-70
-      md:90
-      self-start
-      mt-5
-      mx-auto
-      transition
-      duration-400
-      object-cover
-      aspect="3/4"
+      class="mx-auto mt-5 block aspect-[3/4] w-[70px] self-start border-4 border-secondary object-cover transition-all duration-500 md:w-[90px]"
     />
-    <div p4 gap-2>
+    <div class="gap-2 p-1">
       <div>
-        <h2 text-3xl mb4>
+        <h2 class="mb-1 text-3xl">
           {{ props.item.name }}
         </h2>
 
         <div
           v-if="props.item.biography"
-          ws-pre-wrap
-          op80
-          leading-relaxed
+          class="whitespace-pre-wrap leading-relaxed opacity-80"
           v-text="props.item.biography"
         />
-        <div v-else opacity-50 italic>
+        <div v-else class="italic opacity-50">
           {{ $t("(no biography)") }}
         </div>
       </div>
 
-      <div text-sm op80>
-        <ul grid="~ cols-[max-content_1fr] gap3" items-center>
+      <div class="text-sm opacity-80">
+        <ul class="grid grid-cols-[max-content_1fr] items-center gap-3">
           <template v-if="props.item.known_for_department">
-            <div opacity-60>
+            <div class="opacity-60">
               {{ $t("Known for") }}
             </div>
             <div>
@@ -62,7 +52,7 @@ const externalIds = computed(() => ({
             </div>
           </template>
           <template v-if="props.item.place_of_birth">
-            <div opacity-60>
+            <div class="opacity-60">
               {{ $t("Place of birth") }}
             </div>
             <div>
@@ -71,7 +61,7 @@ const externalIds = computed(() => ({
           </template>
 
           <template v-if="props.item.birthday">
-            <div opacity-60>
+            <div class="opacity-60">
               {{ $t("Birthday") }}
             </div>
             <div>

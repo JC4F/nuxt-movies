@@ -1,16 +1,14 @@
 <script setup lang="ts">
-import type { Image } from '~/types'
+import type { Image } from "~/types";
 
 const props = defineProps<{
-  item: Image
-}>()
+  item: Image;
+}>();
 </script>
 
 <template>
   <button
-    text-left block
-    bg-secondary transition
-    duration-400 relative hover="scale-102 z10"
+    class="relative bg-secondary text-left transition duration-500 hover:z-10 hover:scale-[102]"
     title="View photo"
   >
     <NuxtImg
@@ -19,7 +17,7 @@ const props = defineProps<{
       format="webp"
       :src="`/tmdb${props.item.file_path}`"
       alt="Photo"
-      w-full h-full object-cover
+      class="size-full object-cover"
     />
   </button>
 </template>

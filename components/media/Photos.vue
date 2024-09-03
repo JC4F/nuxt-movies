@@ -1,47 +1,56 @@
 <script setup lang="ts">
-import type { Media } from '~/types'
+import type { Media } from "~/types";
 
 defineProps<{
-  item: Media
-}>()
+  item: Media;
+}>();
 
-const show = useImageModal()
+const show = useImageModal();
 </script>
 
 <template>
-  <div flex="~ col" px-1 md:px16 py8 gap6>
-    <div flex gap-2 items-baseline>
-      <div text-2xl>
-        {{ $t('Backdrops') }}
+  <div class="flex flex-col gap-1.5 px-1 py-2 md:px-4">
+    <div class="flex items-baseline gap-2">
+      <div class="text-2xl">
+        {{ $t("Backdrops") }}
       </div>
-      <div text-sm opacity-50>
-        {{ $t('{numberOfImages} Images', { numberOfImages: item.images?.backdrops?.length }) }}
+      <div class="text-sm opacity-50">
+        {{
+          $t("{numberOfImages} Images", {
+            numberOfImages: item.images?.backdrops?.length,
+          })
+        }}
       </div>
     </div>
-    <div grid="~ cols-minmax-20rem" gap-1>
+    <div class="grid grid-cols-[minmax(20rem,_1fr)] gap-1">
       <PhotoCard
-        v-for="i, idx of item.images?.backdrops"
+        v-for="(i, idx) of item.images?.backdrops"
         :key="i.file_path"
         :item="i"
-        class="aspect-16/9"
-        w-full
+        class="aspect-[16/9] w-full"
         @click="show(item.images!.backdrops, idx)"
       />
     </div>
-    <div flex mt-10 gap-2 items-baseline>
-      <div text-2xl>
-        {{ $t('Posters') }}
+    <div class="mt-10 flex items-baseline gap-2">
+      <div class="text-2xl">
+        {{ $t("Posters") }}
       </div>
-      <div text-sm opacity-50>
-        {{ $t('{numberOfImages} Images', { numberOfImages: item.images?.posters?.length }) }}
+      <div class="text-sm opacity-50">
+        {{
+          $t("{numberOfImages} Images", {
+            numberOfImages: item.images?.posters?.length,
+          })
+        }}
       </div>
     </div>
-    <div grid="~ cols-minmax-10rem lg:cols-minmax-15rem" gap-1>
+    <div
+      class="grid grid-cols-[minmax(10rem,_1fr)] gap-1 lg:grid-cols-[minmax(15rem,_1fr)]"
+    >
       <PhotoCard
-        v-for="i, idx of item.images?.posters"
+        v-for="(i, idx) of item.images?.posters"
         :key="i.file_path"
         :item="i"
-        class="aspect-9/16"
+        class="aspect-[9/16]"
         @click="show(item.images!.posters, idx)"
       />
     </div>

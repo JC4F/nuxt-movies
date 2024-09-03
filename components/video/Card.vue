@@ -1,23 +1,21 @@
 <script setup lang="ts">
-import type { Video } from '~/types'
+import { Play } from "lucide-vue-next";
+import type { Video } from "~/types";
 
 const props = defineProps<{
-  item: Video
-}>()
+  item: Video;
+}>();
 
-const showModal = useIframeModal()
+const showModal = useIframeModal();
 function play() {
-  return showModal(getVideoLink(props.item)!)
+  return showModal(getVideoLink(props.item)!);
 }
 </script>
 
 <template>
-  <button pb2 text-left @click="play()">
+  <button class="pb-0.5 text-left" @click="play()">
     <div
-      block bg-secondary p-[0.25] flex
-      class="aspect-16/9"
-      transition duration-400 relative
-      hover="scale-102 z10"
+      class="relative flex aspect-[16/9] bg-secondary p-[0.25] transition duration-500 hover:z-10 hover:scale-[102]"
     >
       <NuxtImg
         :src="`/youtube/vi/${item.key}/maxresdefault.jpg`"
@@ -25,16 +23,18 @@ function play() {
         height="600"
         format="webp"
         :alt="props.item.name"
-        w-full h-full object-cover
+        class="size-full object-cover"
       />
-      <div flex w-full h-full absolute inset-0 opacity-20 hover:op100 transition>
-        <div i-ph-play ma text-3xl />
+      <div
+        class="absolute inset-0 flex size-full opacity-20 transition hover:opacity-100"
+      >
+        <Play class="mx-auto size-8" />
       </div>
     </div>
-    <div mt-2>
+    <div class="mt-2">
       {{ props.item.name }}
     </div>
-    <div opacity-60 text-sm>
+    <div class="text-sm opacity-60">
       {{ props.item.type }}
     </div>
   </button>

@@ -1,29 +1,32 @@
 <template>
-  <footer p="y15 x15" flex="~ col gap-1">
-    <div flex="~ row gap-2" items-center my2>
-      <img src="/movies-sm.webp" width="25" height="25" alt="Logo">
-      <div text-xl>
-        Nuxt Movies
-      </div>
+  <footer class="flex flex-col gap-1 p-4">
+    <div class="my-0.5 flex items-center gap-2">
+      <img src="/movies-sm.webp" width="25" height="25" alt="Logo" >
+      <div class="text-xl">Nuxt Movies</div>
     </div>
-    <div flex="~ row gap-2" items-center>
-      <div opacity-50 text-sm>
-        Made with
-      </div>
+    <div class="flex items-center gap-0.5">
+      <div class="text-sm opacity-50">Made with</div>
       <a href="https://nuxt.com/" target="_blank" title="Nuxt 3">
-        <IconNuxt3 h5 />
+        <IconNuxt3 class="h-[1.25]" />
       </a>
     </div>
-    <div flex="~ row gap-2" items-center>
-      <p text-true-gray:90 text-sm>
+    <div class="flex items-center gap-0.5">
+      <p class="text-sm text-secondary">
         Data provided by&nbsp;
-        <a op100 target="_blank" href="https://www.themoviedb.org/" title="The Movie Database" rel="noopener" opacity-50 transition-all hover:opacity-100-text>
-          <IconTMDB inline h4 />
+        <a
+          opacity-100
+          target="_blank"
+          href="https://www.themoviedb.org/"
+          title="The Movie Database"
+          rel="noopener"
+          class="opacity-50 transition-all hover:opacity-100"
+        >
+          <IconTMDB class="inline h-1" />
         </a>
       </p>
     </div>
-    <div flex="~ row gap-2" items-center>
-      <p text-true-gray:90 text-sm>
+    <div class="flex items-center gap-0.5">
+      <p class="text-sm text-secondary">
         This project uses the TMDB API but is not endorsed or certified by TMDB.
       </p>
     </div>
@@ -34,7 +37,12 @@
           github_id: 'nuxt/movies',
         }"
       >
-        <a href="https://vercel.com" rel="noopener" target="_blank" aria-label="go to vercel">
+        <a
+          href="https://vercel.com"
+          rel="noopener"
+          target="_blank"
+          aria-label="go to vercel"
+        >
           <IconVercel alt="Vercel" />
         </a>
       </ExternalLinks>

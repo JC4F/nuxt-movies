@@ -1,44 +1,62 @@
 <script setup lang="ts">
-import type { Media, MediaType } from '~/types'
-import { formatDate, formatLang, formatTime, numberWithCommas } from '~/composables/utils'
+import type { Media, MediaType } from "~/types";
+import {
+  formatDate,
+  formatLang,
+  formatTime,
+  numberWithCommas,
+} from "~/composables/utils";
 
-const props = withDefaults(defineProps<{
-  item: Media
-  type: MediaType
-}>(), {
-  item: () => ({} as Media),
-  type: 'movie',
-})
+const props = withDefaults(
+  defineProps<{
+    item: Media;
+    type: MediaType;
+  }>(),
+  {
+    item: () => ({}) as Media,
+    type: "movie",
+  },
+);
 
-const externalIds = computed(() => ({ ...props.item.external_ids, homepage: props.item.homepage }))
-const directors = computed(() => props.item.credits?.crew.filter(person => person.job === 'Director'))
+const externalIds = computed(() => ({
+  ...props.item.external_ids,
+  homepage: props.item.homepage,
+}));
+const directors = computed(() =>
+  props.item.credits?.crew.filter((person) => person.job === "Director"),
+);
 </script>
 
 <template>
-  <div p4 grid="~ cols-[max-content_1fr]" gap-8 items-center ma max-w-300>
+  <div
+    class="mx-auto grid max-w-[300px] grid-cols-[max-content_1fr] items-center gap-8 p-1"
+  >
     <NuxtImg
       width="400"
       height="600"
       format="webp"
       :src="`/tmdb${props.item.poster_path}`"
       :alt="props.item.title || props.item.name"
-      block border="4 gray4/10" w-79 lt-md:hidden
-      transition duration-400 object-cover aspect="10/16"
+      class="hidden aspect-[10/16] w-20 border border-secondary object-cover transition duration-500 md:block"
       :style="{ 'view-transition-name': `item-${props.item.id}` }"
     />
-    <div lt-md:w="[calc(100vw-2rem)]" flex="~ col" md:p4 gap6>
+
+    <div class="flex w-[calc(100vw-2rem)] flex-col gap-1.5 md:p-1">
       <div v-if="props.item.overview">
-        <h2 text-3xl mb4>
-          {{ $t('Storyline') }}
+        <h2 class="mb-1 text-3xl">
+          {{ $t("Storyline") }}
         </h2>
-        <div op80 v-text="props.item.overview" />
+        <div class="opacity-80" v-text="props.item.overview" />
       </div>
 
-      <div text-sm op80>
-        <ul grid="~ cols-[max-content_1fr] lg:cols-[max-content_1fr_max-content_1fr] gap3" items-center>
+      <div text-sm opacity-80>
+        <ul
+          grid="~ cols-[max-content_1fr] lg:cols-[max-content_1fr_max-content_1fr] gap3"
+          items-center
+        >
           <template v-if="props.item.release_date">
             <div>
-              {{ $t('Release Date') }}
+              {{ $t("Release Date") }}
             </div>
             <div>
               {{ formatDate(props.item.release_date) }}
@@ -46,7 +64,7 @@ const directors = computed(() => props.item.credits?.crew.filter(person => perso
           </template>
           <template v-if="props.item.runtime">
             <div>
-              {{ $t('Runtime') }}
+              {{ $t("Runtime") }}
             </div>
 
             <div>
@@ -55,16 +73,15 @@ const directors = computed(() => props.item.credits?.crew.filter(person => perso
           </template>
           <template v-if="directors?.length">
             <div>
-              {{ $t('Director') }}
+              {{ $t("Director") }}
             </div>
 
-            <div flex="~ row wrap gap1">
+            <div class="flex flex-row flex-wrap gap-[0.25]">
               <NuxtLink
                 v-for="person of directors"
                 :key="person.id"
                 :to="`/person/${person.id}`"
-                bg="gray/10 hover:gray/20" p="x2 y1"
-                rounded text-xs
+                class="rounded bg-secondary px-0.5 py-[0.25] text-xs hover:opacity-90"
               >
                 {{ person.name }}
               </NuxtLink>
@@ -72,33 +89,29 @@ const directors = computed(() => props.item.credits?.crew.filter(person => perso
           </template>
           <template v-if="props.item.budget">
             <div>
-              {{ $t('Budget') }}
+              {{ $t("Budget") }}
             </div>
 
-            <div>
-              ${{ numberWithCommas(props.item.budget) }}
-            </div>
+            <div>${{ numberWithCommas(props.item.budget) }}</div>
           </template>
           <template v-if="props.item.revenue">
             <div>
-              {{ $t('Revenue') }}
+              {{ $t("Revenue") }}
             </div>
 
-            <div>
-              ${{ numberWithCommas(props.item.revenue) }}
-            </div>
+            <div>${{ numberWithCommas(props.item.revenue) }}</div>
           </template>
           <template v-if="props.item?.genres?.length">
             <div>
-              {{ $t('Genre') }}
+              {{ $t("Genre") }}
             </div>
 
-            <div flex="~ row wrap gap1">
+            <div class="flex flex-row flex-wrap gap-[0.25]">
               <NuxtLink
-                v-for="genre of props.item.genres" :key="genre.id"
+                v-for="genre of props.item.genres"
+                :key="genre.id"
                 :to="`/genre/${genre.id}/${type}`"
-                bg="gray/10 hover:gray/20" p="x2 y1"
-                rounded text-xs
+                class="rounded bg-secondary px-0.5 py-[0.25] text-xs hover:opacity-90"
               >
                 {{ genre.name }}
               </NuxtLink>
@@ -106,7 +119,7 @@ const directors = computed(() => props.item.credits?.crew.filter(person => perso
           </template>
           <template v-if="props.item.status">
             <div>
-              {{ $t('Status') }}
+              {{ $t("Status") }}
             </div>
 
             <div>
@@ -115,7 +128,7 @@ const directors = computed(() => props.item.credits?.crew.filter(person => perso
           </template>
           <template v-if="props.item.original_language">
             <div>
-              {{ $t('Language') }}
+              {{ $t("Language") }}
             </div>
 
             <div>
@@ -124,11 +137,13 @@ const directors = computed(() => props.item.credits?.crew.filter(person => perso
           </template>
           <template v-if="props.item?.production_companies?.length">
             <div>
-              {{ $t('Production') }}
+              {{ $t("Production") }}
             </div>
 
             <div>
-              {{ props.item.production_companies.map(i => i.name).join(', ') }}
+              {{
+                props.item.production_companies.map((i) => i.name).join(", ")
+              }}
             </div>
           </template>
         </ul>

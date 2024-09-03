@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Media } from "~/types";
 import { formatTime } from "~/composables/utils";
+import { CirclePlay, Play } from "lucide-vue-next";
 
 const props = withDefaults(
   defineProps<{
@@ -26,9 +27,7 @@ const mounted = useMounted();
     :key="item.id"
     class="relative aspect-[3/2] bg-foreground lg:aspect-[25/9]"
   >
-    <div
-      class="absolute inset-x-0 top-0 lg:bottom-0 lg:left-1/3"
-    >
+    <div class="absolute inset-x-0 top-0 lg:bottom-0 lg:left-1/3">
       <NuxtImg
         width="1220"
         height="659"
@@ -39,26 +38,15 @@ const mounted = useMounted();
       />
     </div>
     <div
-      absolute
-      bottom-0
-      left-0
-      top-0
-      px-2.5
-      flex="~ col"
-      justify-center
-      lt-lg="bg-gradient-to-t right-0 p-2.5"
-      lg="px25 w-2/3 bg-gradient-to-r"
-      from-black
-      via-black
-      to-transparent
+      class="absolute inset-0 flex flex-col justify-center bg-gradient-to-t from-foreground via-foreground to-transparent p-2.5 lg:w-2/3 lg:bg-gradient-to-r lg:px-6"
     >
       <Transition appear name="hero">
         <div v-show="mounted">
-          <h1 mt-2 text-4xl lg:text-5xl line-clamp-2>
+          <h1 class="mt-2 line-clamp-2 text-4xl lg:text-5xl">
             {{ props.item.title || props.item.name }}
           </h1>
-          <div flex="~ row wrap" gap-2 items-center mt4>
-            <StarsRate w-25 :value="props.item.vote_average" />
+          <div class="mt-1 flex items-center gap-2">
+            <StarsRate class="w-6" :value="props.item.vote_average" />
             <div class="hidden opacity-50 md:block">
               {{ formatVote(props.item.vote_average) }}
             </div>
@@ -70,32 +58,28 @@ const mounted = useMounted();
                 })
               }}
             </div>
-            <span v-if="props.item.release_date" opacity-50>·</span>
-            <div v-if="props.item.release_date" opacity-50>
+            <span v-if="props.item.release_date" class="opacity-50">·</span>
+            <div v-if="props.item.release_date" class="opacity-50">
               {{ props.item.release_date.slice(0, 4) }}
             </div>
-            <span v-if="props.item.runtime" opacity-50>·</span>
-            <div v-if="props.item.runtime" opacity-50>
+            <span v-if="props.item.runtime" class="opacity-50">·</span>
+            <div v-if="props.item.runtime" class="opacity-50">
               {{ formatTime(props.item.runtime) }}
             </div>
           </div>
           <p
-            class="op80 mt-2 line-clamp-3 overflow-hidden text-xs leading-relaxed md:line-clamp-5 md:text-base"
+            class="mt-2 line-clamp-3 overflow-hidden text-xs leading-relaxed opacity-80 md:line-clamp-5 md:text-base"
           >
             {{ props.item.overview }}
           </p>
-          <div v-if="trailer" class="py5 display-none lg:block">
+          <div v-if="trailer" class="hidden py-[1.25] lg:block">
             <button
               type="button"
-              flex="~ gap-2"
-              items-center
-              p="x6 y3"
-              bg="gray/15 hover:gray/20"
-              transition
+              class="flex items-center gap-2 bg-secondary px-1.5 py-[0.75] transition-all hover:opacity-80"
               :title="$t('Watch Trailer')"
               @click="playTrailer()"
             >
-              <div i-ph-play />
+              <Play class="size-4" />
               {{ $t("Watch Trailer") }}
             </button>
           </div>
@@ -104,27 +88,15 @@ const mounted = useMounted();
     </div>
     <div
       v-if="trailer"
-      lg:hidden
-      absolute
-      left-0
-      top-0
-      right-0
-      h="2/3"
-      items-center
-      justify-center
+      class="absolute inset-x-0 h-2/3 items-center justify-center lg:hidden"
     >
       <button
         type="button"
-        items-center
-        p-2.5
-        text-5xl
-        opacity-20
-        hover:op80
-        transition
+        class="items-center p-2.5 text-5xl opacity-20 transition hover:opacity-80"
         :title="$t('Watch Trailer')"
         @click="playTrailer()"
       >
-        <div i-ph-play-circle-light />
+        <CirclePlay class="size-4" />
       </button>
     </div>
   </div>

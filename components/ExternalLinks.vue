@@ -1,29 +1,38 @@
 <script setup lang="ts">
-import type { ExternalIds } from '~/types'
+import {
+  AtSign,
+  Facebook,
+  Film,
+  Github,
+  Home,
+  Instagram,
+  Linkedin,
+  Twitter,
+} from "lucide-vue-next";
+import type { ExternalIds } from "~/types";
 
 const props = defineProps<{
-  links: ExternalIds
-}>()
+  links: ExternalIds;
+}>();
 
 const imdbType = computed(() => {
-  if (props.links.imdb_id?.startsWith('nm'))
-    return 'name'
+  if (props.links.imdb_id?.startsWith("nm")) return "name";
 
-  return 'title'
-})
+  return "title";
+});
 </script>
 
 <template>
-  <div flex="~ row gap5" items-center text-lg mt-5>
+  <div class="mt-5 flex items-center gap-[1.25] text-lg">
     <a
       v-if="links.twitter_id"
       :href="`https://twitter.com/${links.twitter_id}`"
       target="_blank"
       aria-label="Link to Twitter account"
       rel="noopener"
-      opacity-50 transition-all hover:opacity-100
+      class="opacity-50 transition-all hover:opacity-100"
     >
-      <div i-simple-icons:twitter />
+      <Twitter class="size-4" />
     </a>
     <a
       v-if="links.facebook_id"
@@ -31,9 +40,9 @@ const imdbType = computed(() => {
       target="_blank"
       aria-label="Link to Facebook account"
       rel="noopener"
-      opacity-50 transition-all hover:opacity-100
+      class="opacity-50 transition-all hover:opacity-100"
     >
-      <div i-simple-icons:facebook />
+      <Facebook class="size-4" />
     </a>
     <a
       v-if="links.instagram_id"
@@ -41,9 +50,9 @@ const imdbType = computed(() => {
       target="_blank"
       aria-label="Link to Instagram account"
       rel="noopener"
-      opacity-50 transition-all hover:opacity-100
+      class="opacity-50 transition-all hover:opacity-100"
     >
-      <div i-simple-icons:instagram />
+      <Instagram class="size-4" />
     </a>
     <a
       v-if="links.imdb_id"
@@ -51,9 +60,9 @@ const imdbType = computed(() => {
       target="_blank"
       aria-label="Link to IMDb account"
       rel="noopener"
-      opacity-50 transition-all hover:opacity-100
+      class="opacity-50 transition-all hover:opacity-100"
     >
-      <div i-cib:imdb />
+      <Film class="size-4" />
     </a>
     <a
       v-if="links.github_id"
@@ -61,9 +70,9 @@ const imdbType = computed(() => {
       target="_blank"
       aria-label="Link to GitHub account"
       rel="noopener"
-      opacity-50 transition-all hover:opacity-100
+      class="opacity-50 transition-all hover:opacity-100"
     >
-      <div i-simple-icons:github />
+      <Github class="size-4" />
     </a>
     <a
       v-if="links.linkedin_id"
@@ -71,27 +80,29 @@ const imdbType = computed(() => {
       target="_blank"
       aria-label="Link to LinkedIn account"
       rel="noopener"
-      opacity-50 transition-all hover:opacity-100
+      class="opacity-50 transition-all hover:opacity-100"
     >
-      <div i-simple-icons:linkedin />
+      <Linkedin class="size-4" />
     </a>
     <a
       v-if="links.email"
       :href="links.email"
       aria-label="Link to Email"
-      rel="noopener" scale-120
-      opacity-50 transition-all hover:opacity-100
+      rel="noopener"
+      scale-120
+      class="opacity-50 transition-all hover:opacity-100"
     >
-      <div i-ph-envelope-simple />
+      <AtSign class="size-4" />
     </a>
     <a
       v-if="links.homepage"
       :href="links.homepage"
       aria-label="Link to Homepage"
-      rel="noopener" scale-120
-      opacity-50 transition-all hover:opacity-100
+      rel="noopener"
+      scale-120
+      class="opacity-50 transition-all hover:opacity-100"
     >
-      <div i-ph-link-simple />
+      <Home class="size-4" />
     </a>
     <slot />
   </div>

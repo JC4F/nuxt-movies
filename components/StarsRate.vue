@@ -14,8 +14,8 @@ const style = computed(() => ({
 </script>
 
 <template>
-  <div relative aspect="11/2" filter-hue-rotate-320deg>
-    <img src="/stars.webp" absolute inset-0 aria-hidden="true">
-    <img src="/stars-filled.webp" absolute inset-0 aria-hidden="true" :style="style">
+  <div class="relative aspect-[11/2]">
+    <img src="/stars.webp" class="absolute inset-0" aria-hidden="true">
+    <img src="/stars-filled.webp" class="absolute inset-0" aria-hidden="true" :style="style">
   </div>
 </template>

@@ -1,18 +1,16 @@
 <script setup lang="ts">
-import type { Person } from '~/types'
+import { User } from "lucide-vue-next";
+import type { Person } from "~/types";
 
 defineProps<{
-  item: Person
-}>()
+  item: Person;
+}>();
 </script>
 
 <template>
   <NuxtLink :to="`/person/${item.id}`">
     <div
-      block bg-secondary p-[0.25]
-      class="aspect-[10/16]"
-      transition duration-400
-      hover="scale-105 z10"
+      class="aspect-[10/16] bg-secondary p-[0.25] transition duration-500 hover:z-10 hover:scale-105"
     >
       <NuxtImg
         v-if="item.profile_path"
@@ -21,16 +19,16 @@ defineProps<{
         format="webp"
         :src="`/tmdb${item.profile_path}`"
         :alt="item.name"
-        w-full h-full object-cover
+        class="size-full object-cover"
       />
-      <div v-else h-full opacity-10>
-        <div i-ph:user ma text-4xl />
+      <div v-else class="h-full opacity-10">
+        <User class="size-4" />
       </div>
     </div>
-    <div mt-2>
+    <div class="mt-2">
       {{ item.name }}
     </div>
-    <div opacity-50>
+    <div class="opacity-50">
       {{ item.character || item.known_for_department }}
     </div>
   </NuxtLink>
