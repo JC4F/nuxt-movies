@@ -37,10 +37,10 @@ useEventListener("keydown", (e) => {
   >
     <button
       type="button"
-      class="absolute right-1 top-1 z-50 rounded-full bg-foreground p-[3px] text-3xl opacity-50 transition-all hover:opacity-100"
+      class="absolute right-1 top-1 z-50 rounded-full bg-foreground p-3 text-3xl opacity-50 transition-all hover:opacity-100"
       @click="images = null"
     >
-      <X class="size-4" />
+      <X class="size-8" />
     </button>
     <NuxtImg
       :key="current.file_path"

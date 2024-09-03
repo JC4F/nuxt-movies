@@ -21,24 +21,8 @@ const item = await listMedia(props.query.type, props.query.query, 1);
         {{ $t("Explore more") }}
       </NuxtLink>
     </template>
-    <Swiper
-      class="max-w-full"
-      :slides-per-view="5"
-      :space-between="8"
-      :modules="[SwiperAutoplay]"
-      :loop="true"
-      :autoplay="{
-        delay: 8000,
-        disableOnInteraction: true,
-      }"
-    >
-      <SwiperSlide v-for="i of item?.results || []" :key="i.id">
-        <MediaCard
-          :item="i"
-          :type="props.query.type"
-          class="w-40 flex-1 md:w-60"
-        />
-      </SwiperSlide>
-    </Swiper>
+    <SwiperSlide v-for="i of item?.results || []" :key="i.id">
+      <MediaCard :item="i" :type="props.query.type" />
+    </SwiperSlide>
   </CarouselBase>
 </template>

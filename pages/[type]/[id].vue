@@ -1,30 +1,33 @@
 <script setup lang="ts">
-import type { MediaType } from '~/types'
+import type { MediaType } from "~/types";
 
 definePageMeta({
-  key: route => route.fullPath,
+  key: (route) => route.fullPath,
   validate: ({ params }) => {
-    return ['movie', 'tv'].includes(params.type as MediaType)
+    return ["movie", "tv"].includes(params.type as MediaType);
   },
-})
+});
 
-const route = useRoute()
-const type = computed(() => route.params.type as MediaType || 'movie')
-const id = computed(() => route.params.id as string)
+const route = useRoute();
+const type = computed(() => (route.params.type as MediaType) || "movie");
+const id = computed(() => route.params.id as string);
 
 const [item, recommendations] = await Promise.all([
   getMedia(type.value, id.value),
   getRecommendations(type.value, id.value),
-])
-const $img = useImage()
+]);
+const $img = useImage();
 
 useHead({
   title: item.name || item.title,
   meta: [
-    { name: 'description', content: item.overview },
-    { property: 'og:image', content: $img(`/tmdb${item.poster_path}`, { width: 1200, height: 630 }) },
+    { name: "description", content: item.overview },
+    {
+      property: "og:image",
+      content: $img(`/tmdb${item.poster_path}`, { width: 1200, height: 630 }),
+    },
   ],
-})
+});
 </script>
 
 <template>
@@ -33,15 +36,11 @@ useHead({
     <MediaDetails :item="item" :type="type" />
     <CarouselBase v-if="recommendations?.results?.length">
       <template #title>
-        {{ $t('More like this') }}
+        {{ $t("More like this") }}
       </template>
-      <MediaCard
-        v-for="i of recommendations.results"
-        :key="i.id"
-        :item="i"
-        :type="type"
-        class="w-40 flex-1 md:w-60"
-      />
+      <SwiperSlide v-for="i of recommendations.results" :key="i.id">
+        <MediaCard :item="i" :type="type" />
+      </SwiperSlide>
     </CarouselBase>
     <TheFooter />
   </div>

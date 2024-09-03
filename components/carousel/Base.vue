@@ -6,11 +6,26 @@
     <div class="flex-auto" />
     <slot name="more" />
   </div>
-  <div class="relative">
-    <div class="overflow-y-auto">
-      <div class="flex w-full gap-2 p-2 px-10">
+  <div class="relative w-full gap-2 overflow-hidden p-2 px-10">
+    <ClientOnly>
+      <Swiper
+        class="max-w-full"
+        :slides-per-view="5"
+        :space-between="8"
+        :modules="[SwiperAutoplay]"
+        :loop="true"
+        :autoplay="{
+          delay: 8000,
+          disableOnInteraction: true,
+        }"
+      >
         <slot />
-      </div>
-    </div>
+      </Swiper>
+
+      <template #fallback>
+        <!-- this will be rendered on server side -->
+        <Skeleton class="h-[300px] w-full rounded-xl" />
+      </template>
+    </ClientOnly>
   </div>
 </template>

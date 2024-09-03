@@ -9,12 +9,8 @@ defineProps<{
 
 <template>
   <CarouselBase>
-    <MediaCard
-      v-for="i of items"
-      :key="i.id"
-      :item="i"
-      :type="type"
-      class="w-40 flex-1 md:w-60"
-    />
+    <SwiperSlide v-for="i of items" :key="i.id">
+      <MediaCard :item="i" :type="type" />
+    </SwiperSlide>
   </CarouselBase>
 </template>

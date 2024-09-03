@@ -2,14 +2,32 @@
 import { FileQuestion } from "lucide-vue-next";
 import type { Media, MediaType } from "~/types";
 
-defineProps<{
+const props = defineProps<{
   type: MediaType;
   item: Media;
 }>();
+
+const { $localSe } = useNuxtApp();
+const viewTransitionName = ref("");
+const localMovieId = $localSe.getItem("movieId")
+
+// id type number
+if(localMovieId === props.item.id.toString()){
+  viewTransitionName.value = `item-${props.item.id}`;
+}
+
+const handleClick = () => {
+  viewTransitionName.value = `item-${props.item.id}`;
+  $localSe.setItem("movieId", props.item.id);
+};
 </script>
 
 <template>
-  <NuxtLink :to="`/${item.media_type || type}/${item.id}`" class="pb-2">
+  <NuxtLink
+    :to="`/${item.media_type || type}/${item.id}`"
+    class="pb-2"
+    @click="handleClick"
+  >
     <div
       class="block aspect-[10/16] bg-secondary p-px transition duration-500 hover:z-10 hover:scale-105"
     >
@@ -21,7 +39,7 @@ defineProps<{
         :src="`/tmdb${item.poster_path}`"
         :alt="item.title || item.name"
         class="size-full object-cover"
-        :style="{ 'view-transition-name': `item-${item.id}` }"
+        :style="{ 'view-transition-name': viewTransitionName }"
       />
       <div v-else class="flex h-full opacity-10">
         <FileQuestion class="size-4" />

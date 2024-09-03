@@ -13,11 +13,8 @@ defineProps<{
     <template #title>
       {{ $t("Cast") }}
     </template>
-    <PersonCard
-      v-for="i of item.credits?.cast"
-      :key="i.id"
-      :item="i"
-      class="w-[200px] flex-1"
-    />
+    <SwiperSlide v-for="i of item.credits?.cast" :key="i.id">
+      <PersonCard :item="i" />
+    </SwiperSlide>
   </CarouselBase>
 </template>

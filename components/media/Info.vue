@@ -29,7 +29,7 @@ const directors = computed(() =>
 
 <template>
   <div
-    class="mx-auto grid max-w-[1200px] grid-cols-[max-content_1fr] items-center gap-8 p-1"
+    class="mx-auto grid max-w-[1200px] grid-cols-[max-content_1fr] items-center gap-8 p-4"
   >
     <NuxtImg
       width="400"
