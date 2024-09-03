@@ -23,6 +23,7 @@
     "lru-cache": "^11.0.0",
     "lucide-vue-next": "^0.438.0",
     "nuxt": "^3.13.0",
+    "nuxt-swiper": "^1.2.2",
     "ohash": "^1.1.3",
     "radix-vue": "^1.9.5",
     "shadcn-nuxt": "^0.10.4",

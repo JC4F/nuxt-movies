@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
     "shadcn-nuxt",
+    "nuxt-swiper",
     "@vueuse/nuxt",
     "@nuxt/image",
     "@nuxtjs/i18n",
