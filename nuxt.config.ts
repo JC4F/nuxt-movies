@@ -15,6 +15,9 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
   ],
   css: ["~/assets/scss/main.scss"],
+  experimental: {
+    viewTransition: true,
+  },
   shadcn: {
     /**
      * Prefix for all the imported component
@@ -47,10 +50,10 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    provider: 'proxy',
+    provider: "proxy",
     providers: {
       proxy: {
-        provider: 'ipx',
+        provider: "ipx",
         options: {
           baseURL: `${apiBaseUrl}/ipx`,
         },
