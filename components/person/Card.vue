@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <NuxtLink :to="`/person/${item.id}`">
     <div
-      class="aspect-[10/16] bg-secondary p-[0.25] transition duration-500 hover:z-10 hover:scale-105"
+      class="aspect-[10/16] bg-secondary p-[1px] transition duration-500 hover:z-10 hover:scale-105"
     >
       <NuxtImg
         v-if="item.profile_path"

@@ -14,7 +14,7 @@ const credits = [...props.items].sort((a, b) =>
 </script>
 
 <template>
-  <div class="flex flex-col gap-[0.25]">
+  <div class="flex flex-col gap-[1px]">
     <h2 class="pb-1 text-2xl">
       {{ title }}
     </h2>
@@ -22,7 +22,7 @@ const credits = [...props.items].sort((a, b) =>
       v-for="i of credits"
       :key="i.id"
       :to="`/${i.media_type}/${i.id}`"
-      class="flex flex-col gap-2 bg-secondary px-0.5 py-[0.75]"
+      class="flex flex-col gap-2 bg-secondary px-0.5 py-[3px]"
     >
       <div class="w-5 text-center">
         {{

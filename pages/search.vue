@@ -70,7 +70,7 @@ watch(
       </h1>
       <pre class="py-0.5">{{ error }}</pre>
       <button
-        class="rounded border px-1 py-[0.25] opacity-50 transition-all hover:opacity-100"
+        class="rounded border px-1 py-[1px] opacity-50 transition-all hover:opacity-100"
         @click="error = undefined"
       >
         {{ $t("Retry") }}

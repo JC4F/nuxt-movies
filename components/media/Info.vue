@@ -29,7 +29,7 @@ const directors = computed(() =>
 
 <template>
   <div
-    class="mx-auto grid max-w-[300px] grid-cols-[max-content_1fr] items-center gap-8 p-1"
+    class="mx-auto grid max-w-[1200px] grid-cols-[max-content_1fr] items-center gap-8 p-1"
   >
     <NuxtImg
       width="400"
@@ -37,7 +37,7 @@ const directors = computed(() =>
       format="webp"
       :src="`/tmdb${props.item.poster_path}`"
       :alt="props.item.title || props.item.name"
-      class="hidden aspect-[10/16] w-20 border border-secondary object-cover transition duration-500 md:block"
+      class="hidden aspect-[10/16] w-[320px] border border-secondary object-cover transition duration-500 md:block"
       :style="{ 'view-transition-name': `item-${props.item.id}` }"
     />
 
@@ -76,12 +76,12 @@ const directors = computed(() =>
               {{ $t("Director") }}
             </div>
 
-            <div class="flex flex-row flex-wrap gap-[0.25]">
+            <div class="flex flex-row flex-wrap gap-px">
               <NuxtLink
                 v-for="person of directors"
                 :key="person.id"
                 :to="`/person/${person.id}`"
-                class="rounded bg-secondary px-0.5 py-[0.25] text-xs hover:opacity-90"
+                class="rounded bg-accent-foreground px-0.5 py-px text-xs hover:opacity-90"
               >
                 {{ person.name }}
               </NuxtLink>
@@ -106,12 +106,12 @@ const directors = computed(() =>
               {{ $t("Genre") }}
             </div>
 
-            <div class="flex flex-row flex-wrap gap-[0.25]">
+            <div class="flex flex-row flex-wrap gap-px">
               <NuxtLink
                 v-for="genre of props.item.genres"
                 :key="genre.id"
                 :to="`/genre/${genre.id}/${type}`"
-                class="rounded bg-secondary px-0.5 py-[0.25] text-xs hover:opacity-90"
+                class="rounded bg-accent-foreground px-0.5 py-px text-xs hover:opacity-90"
               >
                 {{ genre.name }}
               </NuxtLink>

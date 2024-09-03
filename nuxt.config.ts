@@ -46,6 +46,17 @@ export default defineNuxtConfig({
       apiBaseUrl,
     },
   },
+  image: {
+    provider: 'proxy',
+    providers: {
+      proxy: {
+        provider: 'ipx',
+        options: {
+          baseURL: `${apiBaseUrl}/ipx`,
+        },
+      },
+    },
+  },
   i18n: {
     detectBrowserLanguage: {
       useCookie: true,

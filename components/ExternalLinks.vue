@@ -23,7 +23,7 @@ const imdbType = computed(() => {
 </script>
 
 <template>
-  <div class="mt-5 flex items-center gap-[1.25] text-lg">
+  <div class="mt-5 flex items-center gap-[5px] text-lg">
     <a
       v-if="links.twitter_id"
       :href="`https://twitter.com/${links.twitter_id}`"

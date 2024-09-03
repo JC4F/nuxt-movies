@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <NuxtLink :to="`/${item.media_type || type}/${item.id}`" pb-0.5>
     <div
-      class="block aspect-[10/16] bg-secondary p-[0.25] transition duration-500 hover:z-10 hover:scale-105"
+      class="block aspect-[10/16] bg-secondary p-[1px] transition duration-500 hover:z-10 hover:scale-105"
     >
       <NuxtImg
         v-if="item.poster_path"

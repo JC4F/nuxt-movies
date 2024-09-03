@@ -13,7 +13,7 @@ const tab = ref<"overview" | "videos" | "photos">("overview");
   <div class="flex items-center justify-center gap-2 py-1.5">
     <button
       :class="{
-        'border-b-2 border-transparent p-[0.75] text-xl uppercase tracking-wide opacity-20 transition': true,
+        'border-b-2 border-transparent p-[3px] text-xl uppercase tracking-wide opacity-20 transition': true,
         'border-b opacity-100': tab === 'overview',
       }"
       @click="tab = 'overview'"
@@ -22,7 +22,7 @@ const tab = ref<"overview" | "videos" | "photos">("overview");
     </button>
     <button
       :class="{
-        'border-b-2 border-transparent p-[0.75] text-xl uppercase tracking-wide opacity-20 transition': true,
+        'border-b-2 border-transparent p-[3px] text-xl uppercase tracking-wide opacity-20 transition': true,
         'border-b opacity-100': tab === 'videos',
       }"
       @click="tab = 'videos'"
@@ -31,7 +31,7 @@ const tab = ref<"overview" | "videos" | "photos">("overview");
     </button>
     <button
       :class="{
-        'border-b-2 border-transparent p-[0.75] text-xl uppercase tracking-wide opacity-20 transition': true,
+        'border-b-2 border-transparent p-[3px] text-xl uppercase tracking-wide opacity-20 transition': true,
         'border-b opacity-100': tab === 'photos',
       }"
       @click="tab = 'photos'"

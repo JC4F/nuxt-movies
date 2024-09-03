@@ -19,7 +19,7 @@ function scrollRight() {
 </script>
 
 <template>
-  <div class="mt-[1.25] flex items-center px-2.5 py-[0.75]">
+  <div class="mt-[5px] flex items-center px-2.5 py-[3px]">
     <div class="text-2xl">
       <slot name="title" />
     </div>
@@ -34,7 +34,7 @@ function scrollRight() {
     </div>
     <button
       type="button"
-      class="absolute inset-y-0 left-0 flex flex-col items-center justify-center p-[0.75] opacity-0 transition-all hover:opacity-100"
+      class="absolute inset-y-0 left-0 flex flex-col items-center justify-center p-[3px] opacity-0 transition-all hover:opacity-100"
       title="Scroll left"
       @click="scrollLeft()"
     >
@@ -42,7 +42,7 @@ function scrollRight() {
     </button>
     <button
       type="button"
-      class="absolute inset-y-0 right-0 flex flex-col items-center justify-center p-[0.75] opacity-0 transition-all hover:opacity-100"
+      class="absolute inset-y-0 right-0 flex flex-col items-center justify-center p-[3px] opacity-0 transition-all hover:opacity-100"
       title="Scroll right"
       @click="scrollRight()"
     >

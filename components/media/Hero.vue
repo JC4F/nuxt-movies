@@ -72,10 +72,10 @@ const mounted = useMounted();
           >
             {{ props.item.overview }}
           </p>
-          <div v-if="trailer" class="hidden py-[1.25] lg:block">
+          <div v-if="trailer" class="hidden py-[5px] lg:block">
             <button
               type="button"
-              class="flex items-center gap-2 bg-secondary px-1.5 py-[0.75] transition-all hover:opacity-80"
+              class="flex items-center gap-2 bg-foreground px-1.5 py-[3px] transition-all hover:opacity-80"
               :title="$t('Watch Trailer')"
               @click="playTrailer()"
             >

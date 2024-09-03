@@ -84,3 +84,17 @@ body {
   font-size: 87.5%;
   /* @apply antialiased; */
 }
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d3d1cb;
+}
+
+::-webkit-scrollbar-track {
+  background: #edece9;
+}

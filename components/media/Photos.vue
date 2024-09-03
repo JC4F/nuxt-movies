@@ -22,7 +22,7 @@ const show = useImageModal();
         }}
       </div>
     </div>
-    <div class="grid grid-cols-[minmax(20rem,_1fr)] gap-1">
+    <div class="grid grid-cols-[repeat(auto-fill,_minmax(20rem,_1fr))] gap-1">
       <PhotoCard
         v-for="(i, idx) of item.images?.backdrops"
         :key="i.file_path"

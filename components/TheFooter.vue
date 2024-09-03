@@ -7,7 +7,7 @@
     <div class="flex items-center gap-0.5">
       <div class="text-sm opacity-50">Made with</div>
       <a href="https://nuxt.com/" target="_blank" title="Nuxt 3">
-        <IconNuxt3 class="h-[1.25]" />
+        <IconNuxt3 class="h-[5px]" />
       </a>
     </div>
     <div class="flex items-center gap-0.5">

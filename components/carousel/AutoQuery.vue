@@ -26,7 +26,7 @@ const item = await listMedia(props.query.type, props.query.query, 1);
       :key="i.id"
       :item="i"
       :type="props.query.type"
-      class="w-10 flex-1 md:w-[60px]"
+      class="w-10 flex-1 md:w-[240px]"
     />
   </CarouselBase>
 </template>

@@ -8,7 +8,7 @@ const props = defineProps<{
 
 <template>
   <button
-    class="relative bg-secondary text-left transition duration-500 hover:z-10 hover:scale-[102]"
+    class="relative bg-secondary text-left transition duration-500 hover:z-10 hover:scale-[1.02]"
     title="View photo"
   >
     <NuxtImg

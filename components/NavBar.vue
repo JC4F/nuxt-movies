@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { Film, Home, Tv } from "lucide-vue-next";
-import Search from "~/pages/search.vue";
+import { Film, Home, Search, Tv } from "lucide-vue-next";
 </script>
 
 <template>
   <div
-    class="flex flex-row items-center justify-evenly border-t bg-foreground py-[1.25] lg:flex-col lg:border-r lg:px-[1.25]"
+    class="flex flex-row items-center justify-evenly border-t bg-foreground py-[5px] lg:flex-col lg:border-r lg:px-[5px]"
   >
     <NuxtLink v-slot="{ isActive }" to="/" :title="$t('Home')">
       <Home :class="{ 'size-6': true, 'text-background': isActive }" />

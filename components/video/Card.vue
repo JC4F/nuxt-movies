@@ -15,7 +15,7 @@ function play() {
 <template>
   <button class="pb-0.5 text-left" @click="play()">
     <div
-      class="relative flex aspect-[16/9] bg-secondary p-[0.25] transition duration-500 hover:z-10 hover:scale-[102]"
+      class="relative flex aspect-[16/9] bg-secondary p-[1px] transition duration-500 hover:z-10 hover:scale-[1.02]"
     >
       <NuxtImg
         :src="`/youtube/vi/${item.key}/maxresdefault.jpg`"

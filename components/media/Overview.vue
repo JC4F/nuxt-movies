@@ -17,7 +17,7 @@ defineProps<{
       v-for="i of item.credits?.cast"
       :key="i.id"
       :item="i"
-      class="w-[50px] flex-1"
+      class="w-[200px] flex-1"
     />
   </CarouselBase>
 </template>

@@ -33,11 +33,11 @@ useEventListener("keydown", (e) => {
 <template>
   <div
     v-if="images && current"
-    class="fixed inset-0 z-10 flex items-center justify-center bg-foreground p-[1.25]"
+    class="fixed inset-0 z-10 flex items-center justify-center bg-foreground p-[5px]"
   >
     <button
       type="button"
-      class="absolute right-1 top-1 z-50 rounded-full bg-foreground p-[0.75] text-3xl opacity-50 transition-all hover:opacity-100"
+      class="absolute right-1 top-1 z-50 rounded-full bg-foreground p-[3px] text-3xl opacity-50 transition-all hover:opacity-100"
       @click="images = null"
     >
       <X class="size-4" />

@@ -15,7 +15,7 @@ defineProps<{
         })
       }}
     </div>
-    <div class="grid grid-cols-[minmax(20rem,_1fr)] gap-1">
+    <div class="grid grid-cols-[repeat(auto-fill,_minmax(20rem,_1fr))] gap-1">
       <VideoCard v-for="i of item.videos?.results" :key="i.id" :item="i" />
     </div>
   </div>

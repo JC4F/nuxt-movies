@@ -14,7 +14,7 @@ const externalIds = computed(() => ({
 
 <template>
   <div
-    class="mx-auto grid max-w-[300px] items-center gap-8 p-1 md:grid-cols-[max-content_1fr]"
+    class="mx-auto grid max-w-[1200px] items-center gap-8 p-1 md:grid-cols-[max-content_1fr]"
   >
     <NuxtImg
       v-if="props.item.profile_path"

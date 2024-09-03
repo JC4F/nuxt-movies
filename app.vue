@@ -39,7 +39,7 @@ useHead({
     <div id="app-scroller" class="relative overflow-y-auto overflow-x-hidden">
       <NuxtPage />
     </div>
-    <NavBar class="order-1" />
+    <NavBar class="-order-1" />
     <IframeModal />
     <PhotoModal />
   </div>
