@@ -20,7 +20,7 @@ const trailerModalState = useState<ModalState<string>>(
         allow="autoplay; encrypted-media"
         allowfullscreen
         :src="trailerModalState.data"
-        class="m-5 w-full border-none lg:m-20"
+        class="size-full"
       />
     </DialogContent>
   </Dialog>
