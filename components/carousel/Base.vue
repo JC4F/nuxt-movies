@@ -9,7 +9,7 @@
   <div class="relative w-full gap-2 overflow-hidden p-2 px-10">
     <ClientOnly>
       <Swiper
-        class="max-w-full"
+        class="max-w-full !overflow-y-visible"
         :slides-per-view="1"
         :space-between="8"
         :modules="[SwiperAutoplay]"

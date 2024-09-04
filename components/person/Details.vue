@@ -14,7 +14,7 @@ const tab = ref<"known" | "credits" | "photos">("known");
     <button
       :class="{
         'border-b-2 border-transparent p-3 text-xl uppercase tracking-wide opacity-20 transition': true,
-        'border-b opacity-100': tab === 'known',
+        '!border-b !opacity-100': tab === 'known',
       }"
       @click="tab = 'known'"
     >
@@ -23,7 +23,7 @@ const tab = ref<"known" | "credits" | "photos">("known");
     <button
       :class="{
         'border-b-2 border-transparent p-3 text-xl uppercase tracking-wide opacity-20 transition': true,
-        'border-b opacity-100': tab === 'credits',
+        '!border-b !opacity-100': tab === 'credits',
       }"
       @click="tab = 'credits'"
     >
@@ -32,7 +32,7 @@ const tab = ref<"known" | "credits" | "photos">("known");
     <button
       :class="{
         'border-b-2 border-transparent p-3 text-xl uppercase tracking-wide opacity-20 transition': true,
-        'border-b opacity-100': tab === 'photos',
+        '!border-b !opacity-100': tab === 'photos',
       }"
       @click="tab = 'photos'"
     >

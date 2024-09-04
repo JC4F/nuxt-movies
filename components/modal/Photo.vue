@@ -18,7 +18,7 @@ const photoModalState = useState<ModalState<Image[]>>(
       class="h-[60vh] w-screen max-w-none p-9 md:h-[80vh] md:w-[80vw]"
     >
       <Swiper
-        class="w-[calc(100vw-74px)] md:w-[calc(80vw-74px)]"
+        class="w-[calc(100vw-74px)] !overflow-y-visible md:w-[calc(80vw-74px)]"
         :modules="[SwiperAutoplay, SwiperPagination, SwiperNavigation]"
         :slides-per-view="1"
         :initial-slide="photoModalState.index"

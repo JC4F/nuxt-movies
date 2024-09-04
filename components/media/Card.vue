@@ -31,7 +31,7 @@ const handleClick = () => {
     @click="handleClick"
   >
     <div
-      class="relative aspect-[10/16] overflow-hidden rounded bg-transparent p-px transition duration-500 hover:z-10 hover:scale-105"
+      class="relative aspect-[10/16] bg-transparent p-px transition duration-500 hover:z-10 hover:scale-105"
     >
       <Skeleton
         :class="{
@@ -48,7 +48,7 @@ const handleClick = () => {
         :src="`/tmdb${item.poster_path}`"
         :alt="item.title || item.name"
         :class="{
-          'absolute inset-0 size-full object-cover opacity-0 transition-all duration-500': true,
+          'absolute inset-0 size-full rounded object-cover opacity-0 transition-all duration-500': true,
           '!opacity-100': !isLoadingImage,
         }"
         :style="{ 'view-transition-name': viewTransitionName }"
