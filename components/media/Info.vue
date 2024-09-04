@@ -18,6 +18,8 @@ const props = withDefaults(
   },
 );
 
+const { isLoadingImage, completeLoadingImage } = useImageLoader();
+
 const externalIds = computed(() => ({
   ...props.item.external_ids,
   homepage: props.item.homepage,
@@ -31,15 +33,30 @@ const directors = computed(() =>
   <div
     class="mx-auto grid max-w-[1200px] grid-cols-[max-content_1fr] items-center gap-8 p-4"
   >
-    <NuxtImg
-      width="400"
-      height="600"
-      format="webp"
-      :src="`/tmdb${props.item.poster_path}`"
-      :alt="props.item.title || props.item.name"
-      class="hidden aspect-[10/16] w-[320px] border border-secondary object-cover transition duration-500 md:block"
-      :style="{ 'view-transition-name': `item-${props.item.id}` }"
-    />
+    <div
+      class="relative hidden aspect-[10/16] w-[320px] border border-secondary md:block"
+    >
+      <Skeleton
+        :class="{
+          'absolute inset-0 rounded': true,
+          'opacity-0': !isLoadingImage,
+        }"
+      />
+      <NuxtImg
+        width="400"
+        height="600"
+        format="webp"
+        loading="lazy"
+        :src="`/tmdb${props.item.poster_path}`"
+        :alt="props.item.title || props.item.name"
+        :class="{
+          'absolute inset-0 size-full object-cover opacity-0 transition-all duration-500': true,
+          '!opacity-100': !isLoadingImage,
+        }"
+        :style="{ 'view-transition-name': `item-${props.item.id}` }"
+        @load="completeLoadingImage"
+      />
+    </div>
 
     <div class="flex w-[calc(100%-2rem)] flex-col gap-6 md:p-4">
       <div v-if="props.item.overview">

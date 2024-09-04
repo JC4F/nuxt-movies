@@ -6,6 +6,8 @@ const props = defineProps<{
   item: Person;
 }>();
 
+const { isLoadingImage, completeLoadingImage } = useImageLoader();
+
 const externalIds = computed(() => ({
   ...props.item.external_ids,
   homepage: props.item.homepage,
@@ -16,15 +18,30 @@ const externalIds = computed(() => ({
   <div
     class="mx-auto grid max-w-[1200px] items-center gap-8 p-4 md:grid-cols-[max-content_1fr]"
   >
-    <NuxtImg
-      v-if="props.item.profile_path"
-      width="400"
-      height="600"
-      format="webp"
-      :src="`/tmdb${props.item.profile_path}`"
-      :alt="props.item.name"
-      class="mx-auto mt-5 block aspect-[3/4] w-72 self-start border-4 border-secondary object-cover transition-all duration-500"
-    />
+    <div
+      class="relative mx-auto mt-5 block aspect-[3/4] w-72 self-start border-4 border-secondary object-cover transition-all duration-500"
+    >
+      <Skeleton
+        :class="{
+          'absolute inset-0 rounded': true,
+          'opacity-0': !isLoadingImage,
+        }"
+      />
+      <NuxtImg
+        v-if="props.item.profile_path"
+        width="400"
+        height="600"
+        format="webp"
+        loading="lazy"
+        :src="`/tmdb${props.item.profile_path}`"
+        :alt="props.item.name"
+        :class="{
+          'absolute inset-0 size-full object-cover opacity-0 transition-all duration-500': true,
+          '!opacity-100': !isLoadingImage,
+        }"
+        @load="completeLoadingImage"
+      />
+    </div>
     <div class="gap-8 p-4">
       <div>
         <h2 class="mb-4 text-3xl">

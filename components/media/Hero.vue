@@ -32,6 +32,7 @@ const mounted = useMounted();
         width="1220"
         height="659"
         format="webp"
+        preload
         :src="`/tmdb${props.item.backdrop_path}`"
         :alt="props.item.title || props.item.name"
         class="size-full object-cover"

@@ -8,11 +8,10 @@ const props = defineProps<{
 }>();
 
 const { $localSe } = useNuxtApp();
+const { isLoadingImage, completeLoadingImage } = useImageLoader();
 
 const viewTransitionName = ref("");
 const localMovieId = $localSe.getItem("movieId");
-
-const isLoadingImage = ref(true);
 
 // id type number
 if (localMovieId === props.item.id.toString()) {
@@ -22,10 +21,6 @@ if (localMovieId === props.item.id.toString()) {
 const handleClick = () => {
   viewTransitionName.value = `item-${props.item.id}`;
   $localSe.setItem("movieId", props.item.id);
-};
-
-const completeLoadingImage = () => {
-  isLoadingImage.value = false;
 };
 </script>
 
@@ -44,19 +39,18 @@ const completeLoadingImage = () => {
           'opacity-0': !isLoadingImage,
         }"
       />
-
       <NuxtImg
         v-if="item.poster_path"
         width="400"
         height="600"
         format="webp"
+        loading="lazy"
         :src="`/tmdb${item.poster_path}`"
         :alt="item.title || item.name"
         :class="{
           'absolute inset-0 size-full object-cover opacity-0 transition-all duration-500': true,
           '!opacity-100': !isLoadingImage,
         }"
-        loading="lazy"
         @load="completeLoadingImage"
       />
 
