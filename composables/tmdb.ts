@@ -2,8 +2,8 @@ import { LRUCache } from "lru-cache";
 import { hash as ohash } from "ohash";
 import type { Credits, Media, MediaType, PageResult, Person } from "~/types";
 
-// const apiBaseUrl = 'http://localhost:3001'
-const apiBaseUrl = "https://movies-proxy.vercel.app";
+// const apiBaseUrl = 'http://localhost:3002'
+// const apiBaseUrl = "https://movies-proxy.vercel.app";
 
 const promiseCache = new LRUCache<string, any>({
   max: 500,
@@ -19,7 +19,7 @@ async function _fetchTMDB(
     params.language = unref(locale);
   }
   return await $fetch(url, {
-    baseURL: `${apiBaseUrl}/tmdb`,
+    baseURL: `/tmdb`,
     params,
   });
 }

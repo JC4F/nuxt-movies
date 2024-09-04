@@ -1,5 +1,5 @@
-// const apiBaseUrl = 'http://localhost:3001'
-const apiBaseUrl = "https://movies-proxy.vercel.app";
+// const apiBaseUrl = 'http://localhost:3002'
+// const apiBaseUrl = "https://movies-proxy.vercel.app";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -47,7 +47,7 @@ export default defineNuxtConfig({
       apiKey: process.env.TMDB_API_KEY || "",
     },
     public: {
-      apiBaseUrl,
+      apiBaseUrl: process.env.NUXT_BASE_URL,
     },
   },
   image: {
@@ -56,7 +56,7 @@ export default defineNuxtConfig({
       proxy: {
         provider: "ipx",
         options: {
-          baseURL: `${apiBaseUrl}/ipx`,
+          baseURL: `${process.env.NUXT_BASE_URL}/ipx`,
         },
       },
     },
