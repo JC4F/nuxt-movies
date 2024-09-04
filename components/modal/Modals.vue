@@ -1,0 +1,4 @@
+<template>
+  <ModalPhoto />
+  <ModalTrailer />
+</template>

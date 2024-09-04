@@ -27,12 +27,7 @@ function handleError() {
         exist on this site.
       </div>
       <pre v-if="isDev">{{ error }}</pre>
-      <button
-        class="rounded border px-1 py-px opacity-50 transition-all hover:opacity-100"
-        @click="handleError"
-      >
-        Go Back
-      </button>
+      <Button :variant="'outline'" @click="handleError"> Go Back </Button>
     </div>
   </NuxtLayout>
 </template>

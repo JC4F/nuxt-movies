@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import { Play } from "lucide-vue-next";
-import type { Video } from "~/types";
+import type { ModalState, Video } from "~/types";
 
 const props = defineProps<{
   item: Video;
 }>();
 
-const showModal = useIframeModal();
+const trailerModalState = useState<ModalState<string>>("trailerModalState");
+// const showModal = useIframeModal();
+
 const { isLoadingImage, completeLoadingImage } = useImageLoader();
 
-function play() {
-  return showModal(getVideoLink(props.item)!);
-}
+const play = () => {
+  trailerModalState.value.isOpen = true;
+  trailerModalState.value.data = getVideoLink(props.item)!;
+  // return showModal(getVideoLink(props.item)!);
+};
 </script>
 
 <template>

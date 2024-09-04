@@ -1,11 +1,20 @@
 <script setup lang="ts">
-import type { Media } from "~/types";
+import type { Image, Media, ModalState } from "~/types";
 
 defineProps<{
   item: Media;
 }>();
 
-const show = useImageModal();
+// const show = useImageModal();
+const photoModalState = useState<ModalState<Image[]>>("photoModalState");
+
+const handleShowPhotoModal = (images: Image[], index: number) => {
+  // show(images, index)
+
+  photoModalState.value.isOpen = true;
+  photoModalState.value.data = images;
+  photoModalState.value.index = index;
+};
 </script>
 
 <template>
@@ -28,7 +37,7 @@ const show = useImageModal();
         :key="i.file_path"
         :item="i"
         class="aspect-[16/9] w-full"
-        @click="show(item.images!.backdrops, idx)"
+        @click="handleShowPhotoModal(item.images!.backdrops, idx)"
       />
     </div>
     <div class="mt-10 flex items-baseline gap-2">
@@ -51,7 +60,7 @@ const show = useImageModal();
         :key="i.file_path"
         :item="i"
         class="aspect-[9/16]"
-        @click="show(item.images!.posters, idx)"
+        @click="handleShowPhotoModal(item.images!.posters, idx)"
       />
     </div>
   </div>

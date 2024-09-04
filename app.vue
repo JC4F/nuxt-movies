@@ -43,8 +43,9 @@ useHead({
       <NuxtPage />
     </div>
     <NavBar class="-order-1" />
-    <IframeModal />
-    <PhotoModal />
+    <!-- <IframeModal />
+    <PhotoModal /> -->
+    <ModalModals />
   </div>
 </template>
 

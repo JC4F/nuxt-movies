@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Media } from "~/types";
+import type { Media, ModalState } from "~/types";
 import { formatTime } from "~/composables/utils";
 import { CirclePlay, Play } from "lucide-vue-next";
 
@@ -13,11 +13,16 @@ const props = withDefaults(
 );
 
 const trailer = computed(() => getTrailer(props.item));
+const trailerModalState = useState<ModalState<string>>("trailerModalState");
+// const showModal = useIframeModal();
 
-const showModal = useIframeModal();
-function playTrailer() {
-  if (trailer.value) showModal(trailer.value);
-}
+const playTrailer = () => {
+  if (trailer.value) {
+    // showModal(trailer.value);
+    trailerModalState.value.isOpen = true;
+    trailerModalState.value.data = trailer.value;
+  }
+};
 
 const mounted = useMounted();
 </script>

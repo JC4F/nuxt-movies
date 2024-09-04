@@ -127,3 +127,9 @@ export interface QueryItem {
 export interface Credits {
   cast: Media[]
 }
+
+export type ModalState<T> = {
+  index?: number,
+  isOpen: boolean;
+  data: T
+}
