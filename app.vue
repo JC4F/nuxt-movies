@@ -38,7 +38,7 @@ useHead({
   >
     <div
       id="app-scroller"
-      class="relative max-h-[calc(100vh-65px)] overflow-y-auto overflow-x-hidden lg:max-h-none"
+      class="relative h-[calc(100vh-65px)] overflow-y-auto overflow-x-hidden lg:max-h-none"
     >
       <NuxtPage />
     </div>
