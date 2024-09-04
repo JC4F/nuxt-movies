@@ -53,7 +53,7 @@ watch(
 
 <template>
   <div>
-    <div class="sticky flex items-center gap-3 bg-foreground px-6 py-4">
+    <div class="sticky flex items-center gap-3 px-6 py-4">
       <Search class="size-6" />
       <input
         v-model="input"

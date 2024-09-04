@@ -96,7 +96,7 @@ const directors = computed(() =>
                 v-for="person of directors"
                 :key="person.id"
                 :to="`/person/${person.id}`"
-                class="rounded bg-accent-foreground px-0.5 py-px text-xs hover:opacity-90"
+                class="rounded bg-accent px-0.5 py-px text-xs hover:opacity-90"
               >
                 {{ person.name }}
               </NuxtLink>
@@ -126,7 +126,7 @@ const directors = computed(() =>
                 v-for="genre of props.item.genres"
                 :key="genre.id"
                 :to="`/genre/${genre.id}/${type}`"
-                class="rounded bg-accent-foreground px-0.5 py-px text-xs hover:opacity-90"
+                class="rounded bg-accent px-0.5 py-px text-xs hover:opacity-90"
               >
                 {{ genre.name }}
               </NuxtLink>

@@ -22,7 +22,7 @@ const credits = [...props.items].sort((a, b) =>
       v-for="i of credits"
       :key="i.id"
       :to="`/${i.media_type}/${i.id}`"
-      class="flex flex-col gap-2 bg-foreground px-2 py-3 text-background"
+      class="flex flex-col gap-2 px-2 py-3"
     >
       <div class="w-20 text-center">
         {{

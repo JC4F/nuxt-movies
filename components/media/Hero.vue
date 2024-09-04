@@ -23,10 +23,7 @@ const mounted = useMounted();
 </script>
 
 <template>
-  <div
-    :key="item.id"
-    class="relative aspect-[3/2] bg-foreground lg:aspect-[25/9]"
-  >
+  <div :key="item.id" class="relative aspect-[3/2] lg:aspect-[25/9]">
     <div class="absolute inset-x-0 top-0 lg:bottom-0 lg:left-1/3">
       <NuxtImg
         width="1220"
@@ -39,7 +36,7 @@ const mounted = useMounted();
       />
     </div>
     <div
-      class="absolute inset-0 flex flex-col justify-center bg-gradient-to-t from-foreground via-foreground to-transparent p-10 lg:w-2/3 lg:bg-gradient-to-r lg:px-24"
+      class="absolute inset-0 flex flex-col justify-center bg-gradient-to-t from-background via-background to-transparent p-10 lg:w-2/3 lg:bg-gradient-to-r lg:px-24"
     >
       <Transition appear name="hero">
         <div v-show="mounted">
@@ -76,7 +73,7 @@ const mounted = useMounted();
           <div v-if="trailer" class="hidden py-5 lg:block">
             <button
               type="button"
-              class="flex items-center gap-2 bg-foreground px-1.5 py-3 transition-all hover:opacity-80"
+              class="flex items-center gap-2 px-1.5 py-3 transition-all hover:opacity-80"
               :title="$t('Watch Trailer')"
               @click="playTrailer()"
             >

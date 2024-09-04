@@ -5,13 +5,13 @@
       <div class="text-xl">Nuxt Movies</div>
     </div>
     <div class="flex items-center gap-2">
-      <div class="text-sm opacity-50">Made with</div>
+      <div class="text-sm opacity-80">Made with</div>
       <a href="https://nuxt.com/" target="_blank" title="Nuxt 3">
         <IconNuxt3 class="h-5" />
       </a>
     </div>
     <div class="flex items-center gap-2">
-      <p class="text-sm text-secondary">
+      <p class="text-sm">
         Data provided by&nbsp;
         <a
           opacity-100
@@ -26,7 +26,7 @@
       </p>
     </div>
     <div class="flex items-center gap-2">
-      <p class="text-sm text-secondary">
+      <p class="text-sm">
         This project uses the TMDB API but is not endorsed or certified by TMDB.
       </p>
     </div>

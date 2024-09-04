@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxt/eslint": "^0.5.5",
     "@nuxt/image": "^1.8.0",
+    "@nuxtjs/color-mode": "^3.4.4",
     "@nuxtjs/html-validator": "^1.8.2",
     "@nuxtjs/i18n": "^8.5.1",
     "@radix-icons/vue": "^1.0.0",

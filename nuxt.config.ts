@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxtjs/html-validator",
     "@nuxt/eslint",
+    "@nuxtjs/color-mode",
   ],
   css: ["~/assets/scss/main.scss"],
   experimental: {
@@ -154,5 +155,9 @@ export default defineNuxtConfig({
         "no-inline-style": "off",
       },
     },
+  },
+  colorMode: {
+    preference: "light", // default value of $colorMode.preference
+    classSuffix: "",
   },
 });

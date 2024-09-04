@@ -33,11 +33,11 @@ useEventListener("keydown", (e) => {
 <template>
   <div
     v-if="images && current"
-    class="fixed inset-0 z-10 flex items-center justify-center bg-foreground p-5"
+    class="fixed inset-0 z-10 flex items-center justify-center p-5"
   >
     <button
       type="button"
-      class="absolute right-1 top-1 z-50 rounded-full bg-foreground p-3 text-3xl opacity-50 transition-all hover:opacity-100"
+      class="absolute right-1 top-1 z-50 rounded-full p-3 text-3xl opacity-50 transition-all hover:opacity-100"
       @click="images = null"
     >
       <X class="size-8" />
@@ -52,23 +52,23 @@ useEventListener("keydown", (e) => {
     <div class="absolute left-0 top-1/2 -translate-y-1/2">
       <button
         type="button"
-        class="bg-foreground px-1 py-2.5 opacity-10 hover:opacity-100"
+        class="px-1 py-2.5 opacity-10 hover:opacity-100"
         @click="prev()"
       >
-        <ChevronLeft class="size-8 text-background" />
+        <ChevronLeft class="size-8" />
       </button>
     </div>
     <div class="absolute right-0 top-1/2 -translate-y-1/2">
       <button
         type="button"
-        class="bg-foreground px-1 py-2.5 opacity-10 hover:opacity-100"
+        class="px-1 py-2.5 opacity-10 hover:opacity-100"
         @click="next()"
       >
-      <ChevronRight class="size-8 text-background" />
+      <ChevronRight class="size-8" />
       </button>
     </div>
     <div class="absolute inset-x-0 bottom-2 items-center">
-      <div class="bg-foreground px-1 py-0.5">{{ index + 1 }} / {{ images.length }}</div>
+      <div class="px-1 py-0.5">{{ index + 1 }} / {{ images.length }}</div>
     </div>
   </div>
 </template>

@@ -14,7 +14,7 @@ const tab = ref<"overview" | "videos" | "photos">("overview");
     <button
       :class="{
         'border-b-2 border-transparent p-3 text-xl uppercase tracking-wide opacity-20 transition': true,
-        'border-b opacity-100': tab === 'overview',
+        '!border-foreground !opacity-100': tab === 'overview',
       }"
       @click="tab = 'overview'"
     >
@@ -23,7 +23,7 @@ const tab = ref<"overview" | "videos" | "photos">("overview");
     <button
       :class="{
         'border-b-2 border-transparent p-3 text-xl uppercase tracking-wide opacity-20 transition': true,
-        'border-b opacity-100': tab === 'videos',
+        '!border-foreground !opacity-100': tab === 'videos',
       }"
       @click="tab = 'videos'"
     >
@@ -32,7 +32,7 @@ const tab = ref<"overview" | "videos" | "photos">("overview");
     <button
       :class="{
         'border-b-2 border-transparent p-3 text-xl uppercase tracking-wide opacity-20 transition': true,
-        'border-b opacity-100': tab === 'photos',
+        '!border-foreground !opacity-100': tab === 'photos',
       }"
       @click="tab = 'photos'"
     >
