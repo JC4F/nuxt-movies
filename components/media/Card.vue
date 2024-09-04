@@ -8,17 +8,24 @@ const props = defineProps<{
 }>();
 
 const { $localSe } = useNuxtApp();
+
 const viewTransitionName = ref("");
-const localMovieId = $localSe.getItem("movieId")
+const localMovieId = $localSe.getItem("movieId");
+
+const isLoadingImage = ref(true);
 
 // id type number
-if(localMovieId === props.item.id.toString()){
+if (localMovieId === props.item.id.toString()) {
   viewTransitionName.value = `item-${props.item.id}`;
 }
 
 const handleClick = () => {
   viewTransitionName.value = `item-${props.item.id}`;
   $localSe.setItem("movieId", props.item.id);
+};
+
+const completeLoadingImage = () => {
+  isLoadingImage.value = false;
 };
 </script>
 
@@ -29,8 +36,15 @@ const handleClick = () => {
     @click="handleClick"
   >
     <div
-      class="block aspect-[10/16] bg-secondary p-px transition duration-500 hover:z-10 hover:scale-105"
+      class="relative block aspect-[10/16] bg-transparent p-px transition duration-500 hover:z-10 hover:scale-105"
     >
+      <Skeleton
+        :class="{
+          'absolute inset-0 rounded': true,
+          'opacity-0': !isLoadingImage,
+        }"
+      />
+
       <NuxtImg
         v-if="item.poster_path"
         width="400"
@@ -38,9 +52,14 @@ const handleClick = () => {
         format="webp"
         :src="`/tmdb${item.poster_path}`"
         :alt="item.title || item.name"
-        class="size-full object-cover"
-        :style="{ 'view-transition-name': viewTransitionName }"
+        :class="{
+          'absolute inset-0 size-full object-cover opacity-0 transition-all duration-500': true,
+          '!opacity-100': !isLoadingImage,
+        }"
+        loading="lazy"
+        @load="completeLoadingImage"
       />
+
       <div v-else class="flex h-full opacity-10">
         <FileQuestion class="size-4" />
       </div>
