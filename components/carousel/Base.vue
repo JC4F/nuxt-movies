@@ -10,13 +10,24 @@
     <ClientOnly>
       <Swiper
         class="max-w-full"
-        :slides-per-view="5"
+        :slides-per-view="1"
         :space-between="8"
         :modules="[SwiperAutoplay]"
         :loop="true"
         :autoplay="{
           delay: 8000,
           disableOnInteraction: true,
+        }"
+        :breakpoints="{
+          '640': {
+            slidesPerView: 2,
+          },
+          '768': {
+            slidesPerView: 4,
+          },
+          '1024': {
+            slidesPerView: 7,
+          },
         }"
       >
         <slot />

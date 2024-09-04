@@ -4,7 +4,7 @@ import { Film, Home, Search, Tv } from "lucide-vue-next";
 
 <template>
   <div
-    class="flex flex-row items-center justify-evenly border-t border-border bg-foreground py-5 lg:flex-col lg:border-r lg:border-t-0 lg:px-5"
+    class="flex flex-row items-center justify-evenly border-b border-border bg-foreground py-5 lg:flex-col lg:border-b-0 lg:border-r lg:px-5"
   >
     <NuxtLink v-slot="{ isActive }" to="/" :title="$t('Home')">
       <Home :class="{ 'size-6': true, 'fill-secondary': isActive }" />

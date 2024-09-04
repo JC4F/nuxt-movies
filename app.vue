@@ -36,7 +36,10 @@ useHead({
   <div
     class="grid size-full grid-rows-[1fr_max-content] overflow-hidden transition-none lg:grid-cols-[max-content_1fr]"
   >
-    <div id="app-scroller" class="relative overflow-y-auto overflow-x-hidden">
+    <div
+      id="app-scroller"
+      class="relative max-h-[calc(100vh-65px)] overflow-y-auto overflow-x-hidden lg:max-h-none"
+    >
       <NuxtPage />
     </div>
     <NavBar class="-order-1" />
