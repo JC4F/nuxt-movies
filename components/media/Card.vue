@@ -31,7 +31,7 @@ const handleClick = () => {
     @click="handleClick"
   >
     <div
-      class="relative block aspect-[10/16] bg-transparent p-px transition duration-500 hover:z-10 hover:scale-105"
+      class="relative aspect-[10/16] overflow-hidden rounded bg-transparent p-px transition duration-500 hover:z-10 hover:scale-105"
     >
       <Skeleton
         :class="{

@@ -76,15 +76,14 @@ const mounted = useMounted();
             {{ props.item.overview }}
           </p>
           <div v-if="trailer" class="hidden py-5 lg:block">
-            <button
-              type="button"
-              class="flex items-center gap-2 px-1.5 py-3 transition-all hover:opacity-80"
+            <Button
+              variant="ghost"
               :title="$t('Watch Trailer')"
               @click="playTrailer()"
             >
               <Play class="size-4" />
               {{ $t("Watch Trailer") }}
-            </button>
+            </Button>
           </div>
         </div>
       </Transition>
@@ -93,14 +92,13 @@ const mounted = useMounted();
       v-if="trailer"
       class="absolute inset-x-0 h-2/3 items-center justify-center lg:hidden"
     >
-      <button
-        type="button"
-        class="items-center p-10 text-5xl opacity-20 transition hover:opacity-80"
+      <Button
+        variant="ghost"
         :title="$t('Watch Trailer')"
         @click="playTrailer()"
       >
         <CirclePlay class="size-4" />
-      </button>
+      </Button>
     </div>
   </div>
 </template>

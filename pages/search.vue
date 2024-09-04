@@ -69,12 +69,9 @@ watch(
         {{ $t("Error occurred on fetching") }}
       </h1>
       <pre class="py-0.5">{{ error }}</pre>
-      <button
-        class="rounded border px-1 py-px opacity-50 transition-all hover:opacity-100"
-        @click="error = undefined"
-      >
+      <Button @click="error = undefined">
         {{ $t("Retry") }}
-      </button>
+      </Button>
     </div>
     <MediaAutoLoadGrid
       v-else-if="currentSearch"
@@ -89,7 +86,7 @@ watch(
         {{ $t("Search result for: {currentSearch}", { currentSearch }) }}
       </div>
     </MediaAutoLoadGrid>
-    <div v-else class="p-10 text-center text-4xl opacity-50" >
+    <div v-else class="p-10 text-center text-4xl opacity-50">
       {{ $t("Type something to search...") }}
     </div>
   </div>

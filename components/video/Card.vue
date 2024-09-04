@@ -19,7 +19,7 @@ const play = () => {
 </script>
 
 <template>
-  <button class="pb-2 text-left" @click="play()">
+  <button class="overflow-hidden rounded pb-2 text-left" @click="play()">
     <div
       class="relative flex aspect-[16/9] bg-transparent p-1 transition duration-500 hover:z-10 hover:scale-[1.02]"
     >

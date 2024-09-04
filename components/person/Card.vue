@@ -29,7 +29,7 @@ const { isLoadingImage, completeLoadingImage } = useImageLoader();
         :src="`/tmdb${item.profile_path}`"
         :alt="item.name"
         :class="{
-          'absolute inset-0 size-full object-cover opacity-0 transition-all duration-500': true,
+          'absolute inset-0 size-full rounded object-cover opacity-0 transition-all duration-500': true,
           '!opacity-100': !isLoadingImage,
         }"
         @load="completeLoadingImage"

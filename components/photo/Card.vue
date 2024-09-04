@@ -10,7 +10,7 @@ const { isLoadingImage, completeLoadingImage } = useImageLoader();
 
 <template>
   <button
-    class="relative bg-transparent text-left transition duration-500 hover:z-10 hover:scale-[1.02]"
+    class="relative overflow-hidden rounded bg-transparent text-left transition duration-500 hover:z-10 hover:scale-[1.02]"
     title="View photo"
   >
     <Skeleton

@@ -34,7 +34,7 @@ const directors = computed(() =>
     class="mx-auto grid max-w-[1200px] grid-cols-[max-content_1fr] items-center gap-8 p-4"
   >
     <div
-      class="relative hidden aspect-[10/16] w-[320px] border border-secondary md:block"
+      class="relative hidden aspect-[10/16] w-[320px] rounded border border-secondary md:block"
     >
       <Skeleton
         :class="{
@@ -49,7 +49,7 @@ const directors = computed(() =>
         :src="`/tmdb${props.item.poster_path}`"
         :alt="props.item.title || props.item.name"
         :class="{
-          'absolute inset-0 size-full object-cover opacity-0 transition-all duration-500': true,
+          'absolute inset-0 size-full rounded object-cover opacity-0 transition-all duration-500': true,
           '!opacity-100': !isLoadingImage,
         }"
         :style="{ 'view-transition-name': `item-${props.item.id}` }"
