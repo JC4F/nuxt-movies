@@ -46,7 +46,6 @@ const directors = computed(() =>
         width="400"
         height="600"
         format="webp"
-        loading="lazy"
         :src="`/tmdb${props.item.poster_path}`"
         :alt="props.item.title || props.item.name"
         :class="{

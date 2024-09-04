@@ -51,6 +51,7 @@ const handleClick = () => {
           'absolute inset-0 size-full object-cover opacity-0 transition-all duration-500': true,
           '!opacity-100': !isLoadingImage,
         }"
+        :style="{ 'view-transition-name': viewTransitionName }"
         @load="completeLoadingImage"
       />
 
