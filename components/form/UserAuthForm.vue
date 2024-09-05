@@ -3,7 +3,9 @@ import { Github, Loader } from "lucide-vue-next";
 import { ref } from "vue";
 import { cn } from "~/lib/utils";
 
+const { signIn } = useAuth();
 const isLoading = ref(false);
+
 async function onSubmit(event: Event) {
   event.preventDefault();
   isLoading.value = true;
@@ -12,6 +14,7 @@ async function onSubmit(event: Event) {
     isLoading.value = false;
   }, 3000);
 }
+
 </script>
 
 <template>
@@ -46,7 +49,12 @@ async function onSubmit(event: Event) {
         </span>
       </div>
     </div>
-    <Button variant="outline" type="button" :disabled="isLoading">
+    <Button
+      variant="outline"
+      type="button"
+      :disabled="isLoading"
+      @click="signIn('github')"
+    >
       <Loader v-if="isLoading" class="mr-2 size-4 animate-spin" />
       <Github v-else class="mr-2 size-4" />
       GitHub

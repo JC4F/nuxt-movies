@@ -1,16 +1,20 @@
 <script setup lang="ts">
-import { Film, Home, Search, Tv } from "lucide-vue-next";
+import { Film, Home, LogOut, Search, Tv } from "lucide-vue-next";
 import { pagesToAuthen } from "~/constants/route";
 
 const route = useRoute();
+const { signOut, status } = useAuth();
 const showNav = ref(true);
 
 watch(
   () => route.path,
   () => {
+    console.log('omg :', route.path);
     if (pagesToAuthen.includes(route.path)) showNav.value = false;
     else showNav.value = true;
-  },
+  },{
+    immediate: true,
+  }
 );
 </script>
 
@@ -41,6 +45,15 @@ watch(
     </Button>
 
     <ThemeToggle />
+
+    <Button
+      v-if="status === 'authenticated'"
+      variant="ghost"
+      :size="'icon'"
+      @click="signOut()"
+    >
+      <LogOut :class="{ 'size-6': true }" />
+    </Button>
   </div>
   <div v-else />
 </template>
