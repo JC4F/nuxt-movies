@@ -42,7 +42,7 @@ export default defineNuxtConfig({
     "/**":
       process.env.NODE_ENV === "development"
         ? {
-            cache: false
+            cache: false,
           }
         : {
             cache: {
@@ -149,8 +149,8 @@ export default defineNuxtConfig({
   auth: {
     isEnabled: true,
     disableServerSideAuth: false,
-    originEnvKey: "AUTH_ORIGIN",
-    baseURL: "/api/auth",
+    originEnvKey: "NUXT_BASE_URL",
+    baseURL: `${process.env.NUXT_BASE_URL}/api/auth`,
     provider: {
       type: "authjs",
       trustHost: false,
