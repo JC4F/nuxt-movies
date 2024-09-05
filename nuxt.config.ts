@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
     "@nuxt/eslint",
     "@nuxtjs/color-mode",
+    "@sidebase/nuxt-auth",
   ],
   css: ["~/assets/scss/main.scss"],
   experimental: {
@@ -38,7 +39,20 @@ export default defineNuxtConfig({
     },
   },
   routeRules: {
-    "/**": { cors: true },
+    "/**":
+      process.env.NODE_ENV === "development"
+        ? {
+            cache: false
+          }
+        : {
+            cache: {
+              swr: true,
+              maxAge: 120,
+              staleMaxAge: 60,
+              headersOnly: true,
+            },
+            cors: true,
+          },
     // TODO: enable when Nitro on Vercel missing query bug is fixed
     // '/tmdb/**': { swr: true },
   },
@@ -131,5 +145,22 @@ export default defineNuxtConfig({
   colorMode: {
     preference: "light", // default value of $colorMode.preference
     classSuffix: "",
+  },
+  auth: {
+    isEnabled: true,
+    disableServerSideAuth: false,
+    originEnvKey: "NUXT_BASE_URL",
+    baseURL: "/api/auth",
+    provider: {
+      type: "authjs",
+      trustHost: false,
+      defaultProvider: "github",
+      addDefaultCallbackUrl: true,
+    },
+    sessionRefresh: {
+      enablePeriodically: 10000,
+      enableOnWindowFocus: true,
+    },
+    // globalAppMiddleware: false,
   },
 });
