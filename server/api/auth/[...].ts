@@ -4,7 +4,6 @@ import { NuxtAuthHandler } from "#auth";
 export default NuxtAuthHandler({
   // A secret string you define, to ensure correct encryption
   secret: process.env.AUTH_SECRET,
-  debug: true,
   providers: [
     // @ts-expect-error Use .default here for it to work during SSR.
     GithubProvider.default({
