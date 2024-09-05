@@ -79,7 +79,7 @@ const mounted = useMounted();
             <Button
               variant="ghost"
               :title="$t('Watch Trailer')"
-              @click="playTrailer()"
+              @click.stop.prevent="playTrailer()"
             >
               <Play class="size-4" />
               {{ $t("Watch Trailer") }}
@@ -95,7 +95,7 @@ const mounted = useMounted();
       <Button
         variant="ghost"
         :title="$t('Watch Trailer')"
-        @click="playTrailer()"
+        @click.stop.prevent="playTrailer()"
       >
         <CirclePlay class="size-4" />
       </Button>
