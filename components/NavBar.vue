@@ -9,7 +9,7 @@ const showNav = ref(true);
 watch(
   () => route.path,
   () => {
-    console.log('omg :', route.path);
+    // console.log('omg :', route.path);
     if (pagesToAuthen.includes(route.path)) showNav.value = false;
     else showNav.value = true;
   },{
