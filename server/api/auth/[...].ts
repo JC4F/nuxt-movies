@@ -11,4 +11,9 @@ export default NuxtAuthHandler({
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
   ],
+  callbacks: {
+    async redirect({  baseUrl }) {
+      return baseUrl;
+    },
+  },
 });
