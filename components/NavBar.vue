@@ -1,9 +1,22 @@
 <script setup lang="ts">
 import { Film, Home, Search, Tv } from "lucide-vue-next";
+import { pagesToAuthen } from "~/constants/route";
+
+const route = useRoute();
+const showNav = ref(true);
+
+watch(
+  () => route.path,
+  () => {
+    if (pagesToAuthen.includes(route.path)) showNav.value = false;
+    else showNav.value = true;
+  },
+);
 </script>
 
 <template>
   <div
+    v-if="showNav"
     class="flex flex-row items-center justify-evenly border-b border-border bg-background/80 py-3 lg:flex-col lg:border-b-0 lg:border-r lg:px-3"
   >
     <Button variant="ghost" :size="'icon'" as-child>
@@ -29,4 +42,5 @@ import { Film, Home, Search, Tv } from "lucide-vue-next";
 
     <ThemeToggle />
   </div>
+  <div v-else />
 </template>

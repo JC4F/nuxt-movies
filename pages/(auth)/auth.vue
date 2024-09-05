@@ -9,23 +9,20 @@ definePageMeta({
 
 <template>
   <div class="md:hidden">
-    <VPImage
+    <NuxtImg
       alt="Authentication"
       width="1280"
       height="1214"
       class="block"
-      :image="{
-        dark: '/examples/authentication-dark.png',
-        light: '/examples/authentication-light.png',
-      }"
+      src="/social-card.png"
     />
   </div>
 
   <div
     class="container relative hidden h-full flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0"
   >
-    <a
-      href="/examples/authentication"
+    <NuxtLink
+      to="/"
       :class="
         cn(
           buttonVariants({ variant: 'ghost' }),
@@ -33,8 +30,8 @@ definePageMeta({
         )
       "
     >
-      Login
-    </a>
+      Home
+    </NuxtLink>
     <div
       class="relative hidden h-full flex-col bg-muted p-10 text-white dark:border-r lg:flex"
     >

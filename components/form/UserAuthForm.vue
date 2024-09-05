@@ -31,7 +31,7 @@ async function onSubmit(event: Event) {
           />
         </div>
         <Button :disabled="isLoading">
-          <LucideSpinner v-if="isLoading" class="mr-2 size-4 animate-spin" />
+          <Loader v-if="isLoading" class="mr-2 size-4 animate-spin" />
           Sign In with Email
         </Button>
       </div>
