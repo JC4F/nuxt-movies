@@ -38,24 +38,24 @@ export default defineNuxtConfig({
       },
     },
   },
-  routeRules: {
-    "/**":
-      process.env.NODE_ENV === "development"
-        ? {
-            cache: false,
-          }
-        : {
-            cache: {
-              swr: true,
-              maxAge: 120,
-              staleMaxAge: 60,
-              headersOnly: true,
-            },
-            cors: true,
-          },
-    // TODO: enable when Nitro on Vercel missing query bug is fixed
-    // '/tmdb/**': { swr: true },
-  },
+  // routeRules: {
+  //   "/**":
+  //     process.env.NODE_ENV === "development"
+  //       ? {
+  //           cache: false,
+  //         }
+  //       : {
+  //           cache: {
+  //             swr: true,
+  //             maxAge: 120,
+  //             staleMaxAge: 60,
+  //             headersOnly: true,
+  //           },
+  //           cors: true,
+  //         },
+  //   // TODO: enable when Nitro on Vercel missing query bug is fixed
+  //   // '/tmdb/**': { swr: true },
+  // },
   runtimeConfig: {
     tmdb: {
       apiKey: process.env.TMDB_API_KEY || "",
