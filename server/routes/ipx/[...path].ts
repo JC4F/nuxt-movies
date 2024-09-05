@@ -7,9 +7,10 @@ export default lazyEventHandler(() => {
     alias: {
       "/tmdb": "https://image.tmdb.org/t/p/original/",
       "/youtube": "https://img.youtube.com/",
+      "/self": `${process.env.NUXT_BASE_URL}/`,
     },
     storage: ipxHttpStorage({
-      domains: ["image.tmdb.org", "img.youtube.com"],
+      domains: ["image.tmdb.org", "img.youtube.com", process.env.NUXT_BASE_URL!],
     }),
   });
 

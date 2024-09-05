@@ -14,7 +14,7 @@ definePageMeta({
       width="1280"
       height="1214"
       class="block"
-      src="/social-card.png"
+      src="/self/social-card.png"
     />
   </div>
 
